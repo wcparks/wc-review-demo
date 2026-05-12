@@ -9,36 +9,36 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{background:#1C1520;font-family:Georgia,serif;color:#2E1F2A;height:100%;overflow:hidden}
+html,body{background:#2A1708;font-family:Georgia,serif;color:#3C2415;height:100%;overflow:hidden}
 :root{
-  --brown:#4A3050;
-  --brown-mid:#7A506A;
-  --gold:#C49AB0;
-  --gold-light:#ECDAE4;
-  --cream:#FAF6F8;
+  --brown:#6B4226;
+  --brown-mid:#9B6848;
+  --gold:#E8A090;
+  --gold-light:#F5DEDA;
+  --cream:#FBF6F4;
   --white:#FFFFFF;
-  --text:#2E1F2A;
-  --muted:#806070;
-  --border:#E0CBDA;
-  --rose:#F6EEF2;
+  --text:#3C2415;
+  --muted:#9A7060;
+  --border:#EACDC7;
+  --rose:#FAF0EC;
 }
 .app{width:100%;max-width:390px;height:100vh;height:100dvh;margin:0 auto;background:var(--cream);overflow-y:auto;overflow-x:hidden;position:relative}
 .view{display:none}.view.active{display:block}
 
 /* Header */
-.wc-header{background:linear-gradient(135deg,#3D2744 0%,#4A3050 100%);padding:16px 22px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:10;box-shadow:0 2px 16px rgba(45,20,50,.18)}
+.wc-header{background:linear-gradient(135deg,#5C3520 0%,#6B4226 100%);padding:16px 22px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:10;box-shadow:0 2px 16px rgba(42,23,8,.22)}
 .logo-l1{font-family:'Cormorant Garamond',Georgia,serif;font-size:18px;font-weight:700;color:#fff;letter-spacing:.03em}
 .logo-l2{font-family:Arial,sans-serif;font-size:10px;color:var(--gold);letter-spacing:.16em;text-transform:uppercase;margin-top:2px;opacity:.9}
 
 /* Hero */
-.wc-hero{background:linear-gradient(160deg,#3D2744 0%,#5B3A62 60%,#4A3050 100%);padding:40px 28px 44px;text-align:center}
+.wc-hero{background:linear-gradient(160deg,#5C3520 0%,#7A4A2E 60%,#6B4226 100%);padding:40px 28px 44px;text-align:center}
 .eyebrow{font-family:Arial,sans-serif;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;opacity:.9}
 .hero-title{font-family:'Cormorant Garamond',Georgia,serif;font-size:34px;font-weight:600;color:#fff;line-height:1.25;margin-bottom:12px;font-style:italic}
 .hero-sub{font-family:Arial,sans-serif;font-size:13px;color:var(--gold-light);line-height:1.8;max-width:400px;margin:0 auto 28px;opacity:.88}
 
 /* Buttons */
-.btn-gold{background:linear-gradient(135deg,#C49AB0 0%,#B07A98 100%);color:#fff;font-family:Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:14px 36px;border-radius:99px;border:none;cursor:pointer;transition:all .2s;display:inline-block;box-shadow:0 4px 16px rgba(176,122,152,.35)}
-.btn-gold:hover{background:linear-gradient(135deg,#B88CA4 0%,#9A6886 100%);box-shadow:0 6px 20px rgba(176,122,152,.45);transform:translateY(-1px)}
+.btn-gold{background:linear-gradient(135deg,#E8A090 0%,#D07868 100%);color:#fff;font-family:Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:14px 36px;border-radius:99px;border:none;cursor:pointer;transition:all .2s;display:inline-block;box-shadow:0 4px 16px rgba(208,120,104,.35)}
+.btn-gold:hover{background:linear-gradient(135deg,#D48C7C 0%,#BE6858 100%);box-shadow:0 6px 20px rgba(208,120,104,.45);transform:translateY(-1px)}
 .btn-gold-full{width:100%}
 .btn-back{padding:12px 20px;background:var(--white);border:1.5px solid var(--border);border-radius:99px;font-family:Arial,sans-serif;font-size:12px;font-weight:700;cursor:pointer;color:var(--muted);transition:all .2s}
 .btn-back:hover{background:var(--rose);border-color:var(--gold)}
@@ -61,7 +61,7 @@ html,body{background:#1C1520;font-family:Georgia,serif;color:#2E1F2A;height:100%
 .field select,.field input,.field textarea{width:100%;font-family:Arial,sans-serif;font-size:14px;padding:10px 14px;border-radius:8px;border:1.5px solid var(--border);background:var(--white);color:var(--text);outline:none;transition:all .2s}
 .field select:focus,.field input:focus,.field textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(196,154,176,.18)}
 .field textarea{resize:vertical;min-height:80px;line-height:1.5}
-.req{color:#B54068}
+.req{color:#B84040}
 
 /* Ratings */
 .rating-block{background:var(--white);border:none;border-radius:10px;padding:14px 16px;margin-bottom:8px;box-shadow:0 1px 8px rgba(74,48,80,.06)}
@@ -88,7 +88,7 @@ html,body{background:#1C1520;font-family:Georgia,serif;color:#2E1F2A;height:100%
 .notice-bar .ti{color:var(--gold);font-size:15px;flex-shrink:0;margin-top:1px}
 
 /* Error */
-.err-msg{font-family:Arial,sans-serif;font-size:12px;color:#B54068;margin-top:6px;display:none}
+.err-msg{font-family:Arial,sans-serif;font-size:12px;color:#B84040;margin-top:6px;display:none}
 
 /* Success */
 .success-body{padding:36px 24px;text-align:center}
@@ -108,11 +108,11 @@ html,body{background:#1C1520;font-family:Georgia,serif;color:#2E1F2A;height:100%
 .login-sub{font-family:Arial,sans-serif;font-size:12px;color:var(--muted);text-align:center;margin-bottom:20px}
 
 /* Admin */
-.admin-header{background:linear-gradient(135deg,#3D2744 0%,#4A3050 100%);padding:16px 22px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;box-shadow:0 2px 16px rgba(45,20,50,.18)}
+.admin-header{background:linear-gradient(135deg,#5C3520 0%,#6B4226 100%);padding:16px 22px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;box-shadow:0 2px 16px rgba(42,23,8,.22)}
 .admin-header-title{font-family:'Cormorant Garamond',Georgia,serif;font-size:18px;font-weight:600;color:#fff;font-style:italic}
 .admin-eye{font-family:Arial,sans-serif;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:2px}
 .btn-signout{background:transparent;border:1px solid var(--gold);color:var(--gold);font-family:Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 13px;border-radius:3px;cursor:pointer}
-.btn-signout:hover{background:rgba(201,169,110,.15)}
+.btn-signout:hover{background:rgba(232,160,144,.15)}
 
 .stat-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;padding:16px 20px 0}
 .stat{background:var(--white);border:none;border-radius:10px;padding:14px 10px;text-align:center;box-shadow:0 2px 10px rgba(74,48,80,.07)}
@@ -224,22 +224,13 @@ html,body{background:#1C1520;font-family:Georgia,serif;color:#2E1F2A;height:100%
       </select>
     </div>
     <div class="field">
-      <label>Type of visit <span class="req">*</span></label>
-      <select id="s1-type">
-        <option value="">Select...</option>
-        <option>Annual wellness exam</option><option>Mammogram</option><option>OB / prenatal visit</option>
-        <option>Follow-up appointment</option><option>New patient visit</option><option>Lab / imaging</option>
-        <option>Procedure</option><option>Prefer not to say</option>
-      </select>
-    </div>
-    <div class="field">
       <label>When was your visit?</label>
       <select id="s1-when">
         <option value="">Select...</option>
         <option>Today</option><option>Yesterday</option><option>Within the past week</option><option>Within the past month</option>
       </select>
     </div>
-    <div class="err-msg" id="err1">Please select a location, provider, and visit type to continue.</div>
+    <div class="err-msg" id="err1">Please select a location and provider to continue.</div>
   </div>
   <div class="nav-row">
     <button class="btn-back" onclick="gotoStep(0)">← Back</button>
@@ -456,10 +447,10 @@ function setRec(v){
 }
 
 function next1(){
-  var l=document.getElementById('s1-loc').value,p=document.getElementById('s1-prov').value,t=document.getElementById('s1-type').value;
-  if(!l||!p||!t){document.getElementById('err1').style.display='block';return}
+  var l=document.getElementById('s1-loc').value,p=document.getElementById('s1-prov').value;
+  if(!l||!p){document.getElementById('err1').style.display='block';return}
   document.getElementById('err1').style.display='none';
-  state.loc=l;state.prov=p;state.type=t;state.when=document.getElementById('s1-when').value;
+  state.loc=l;state.prov=p;state.when=document.getElementById('s1-when').value;
   gotoStep(2);
 }
 function next2(){
@@ -485,7 +476,7 @@ function restart(){
   state={loc:'',prov:'',type:'',when:'',ratings:{},rec:'',good:'',improve:'',name:'',hear:'',first:''};
   document.querySelectorAll('.star').forEach(function(s){s.classList.remove('lit')});
   document.querySelectorAll('.rec-btn').forEach(function(b){b.classList.remove('sel')});
-  ['s1-loc','s1-prov','s1-type','s1-when','s3-good','s3-improve','s4-name','s4-hear','s4-first'].forEach(function(id){var el=document.getElementById(id);if(el)el.value=''});
+  ['s1-loc','s1-prov','s1-when','s3-good','s3-improve','s4-name','s4-hear','s4-first'].forEach(function(id){var el=document.getElementById(id);if(el)el.value=''});
   showView('v-welcome');
 }
 
