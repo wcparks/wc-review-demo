@@ -12,15 +12,15 @@
 html,body{background:#1E1410;font-family:Georgia,serif;color:#3A2818;height:100%;overflow:hidden}
 :root{
   --brown:#6E4838;
-  --brown-mid:#A07860;
-  --gold:#CEAA98;
-  --gold-light:#EDD8CE;
-  --cream:#FAF4EF;
-  --white:#FFFCF9;
+  --brown-mid:#A06878;
+  --gold:#D4889A;
+  --gold-light:#F5D5DC;
+  --cream:#FDF6F8;
+  --white:#FFFCFD;
   --text:#3A2818;
-  --muted:#9A8070;
-  --border:#E8D0C4;
-  --rose:#FAF0E8;
+  --muted:#9A7080;
+  --border:#EDD0D8;
+  --rose:#FDF0F3;
 }
 .app{width:100%;max-width:390px;height:100vh;height:100dvh;margin:0 auto;background:var(--cream);overflow-y:auto;overflow-x:hidden;position:relative}
 .view{display:none}.view.active{display:block}
@@ -37,15 +37,15 @@ html,body{background:#1E1410;font-family:Georgia,serif;color:#3A2818;height:100%
 .hero-sub{font-family:Arial,sans-serif;font-size:13px;color:var(--gold-light);line-height:1.8;max-width:400px;margin:0 auto 28px;opacity:.88}
 
 /* Buttons */
-.btn-gold{background:linear-gradient(135deg,#CEAA98 0%,#A87858 100%);color:#fff;font-family:Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:15px 40px;border-radius:99px;border:none;cursor:pointer;transition:all .25s;display:inline-block;box-shadow:0 6px 24px rgba(168,120,88,.38)}
-.btn-gold:hover{background:linear-gradient(135deg,#BE9A88 0%,#986848 100%);box-shadow:0 8px 28px rgba(168,120,88,.50);transform:translateY(-2px)}
+.btn-gold{background:linear-gradient(135deg,#D4889A 0%,#8A5040 100%);color:#fff;font-family:Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:15px 40px;border-radius:99px;border:none;cursor:pointer;transition:all .25s;display:inline-block;box-shadow:0 6px 24px rgba(212,136,154,.38)}
+.btn-gold:hover{background:linear-gradient(135deg,#C4788A 0%,#7A4030 100%);box-shadow:0 8px 28px rgba(212,136,154,.52);transform:translateY(-2px)}
 .btn-gold-full{width:100%}
 .btn-back{padding:12px 20px;background:var(--white);border:1.5px solid var(--border);border-radius:99px;font-family:Arial,sans-serif;font-size:12px;font-weight:700;cursor:pointer;color:var(--muted);transition:all .2s}
 .btn-back:hover{background:var(--rose);border-color:var(--gold)}
 
 /* Progress */
 .progress-wrap{background:var(--gold-light);height:6px}
-.progress-fill{height:6px;background:linear-gradient(90deg,#CEAA98,#A87858);transition:width .4s ease}
+.progress-fill{height:6px;background:linear-gradient(90deg,#D4889A,#8A5040);transition:width .4s ease}
 
 /* Step header */
 .step-header{background:linear-gradient(135deg,var(--rose) 0%,var(--cream) 100%);padding:18px 22px;border-bottom:1px solid var(--border)}
@@ -75,7 +75,7 @@ html,body{background:#1E1410;font-family:Georgia,serif;color:#3A2818;height:100%
 /* Recommend buttons */
 .rec-row{display:flex;gap:8px;margin-top:6px}
 .rec-btn{flex:1;padding:11px 6px;border-radius:99px;border:1.5px solid var(--border);background:var(--white);color:var(--muted);font-family:Arial,sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;cursor:pointer;text-align:center;transition:all .2s}
-.rec-btn.sel{border-color:var(--brown);background:linear-gradient(135deg,#6E4838,#A07860);color:#fff;box-shadow:0 3px 12px rgba(110,72,56,.28)}
+.rec-btn.sel{border-color:var(--gold);background:linear-gradient(135deg,#D4889A,#8A5040);color:#fff;box-shadow:0 3px 12px rgba(212,136,154,.30)}
 
 /* Nav row */
 .nav-row{display:flex;gap:10px;padding:4px 20px 20px}
