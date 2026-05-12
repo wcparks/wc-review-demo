@@ -222,22 +222,13 @@ html,body{background:#FDF8F2;font-family:Georgia,serif;color:#2C1A0E;min-height:
       </select>
     </div>
     <div class="field">
-      <label>Type of visit <span class="req">*</span></label>
-      <select id="s1-type">
-        <option value="">Select...</option>
-        <option>Annual wellness exam</option><option>Mammogram</option><option>OB / prenatal visit</option>
-        <option>Follow-up appointment</option><option>New patient visit</option><option>Lab / imaging</option>
-        <option>Procedure</option><option>Prefer not to say</option>
-      </select>
-    </div>
-    <div class="field">
       <label>When was your visit?</label>
       <select id="s1-when">
         <option value="">Select...</option>
         <option>Today</option><option>Yesterday</option><option>Within the past week</option><option>Within the past month</option>
       </select>
     </div>
-    <div class="err-msg" id="err1">Please select a location, provider, and visit type to continue.</div>
+    <div class="err-msg" id="err1">Please select a location and provider to continue.</div>
   </div>
   <div class="nav-row">
     <button class="btn-back" onclick="gotoStep(0)">← Back</button>
@@ -410,17 +401,17 @@ html,body{background:#FDF8F2;font-family:Georgia,serif;color:#2C1A0E;min-height:
 </div><!-- end .app -->
 
 <script>
-var state={loc:'',prov:'',type:'',when:'',ratings:{},rec:'',good:'',improve:'',name:'',hear:'',first:''};
+var state={loc:'',prov:'',when:'',ratings:{},rec:'',good:'',improve:'',name:'',hear:'',first:''};
 var tabFilter='all';
 var ratingIds=['checkin','lobbywait','provwait','staff','clean','care','checkout','overall'];
 var ratingLabels={checkin:'Check-in',lobbywait:'Lobby wait',provwait:'Provider wait',staff:'Staff',clean:'Cleanliness',care:'Provider care',checkout:'Check-out',overall:'Overall'};
 
 var reviews=[
-  {id:1,name:'Maria G.',loc:"Hunter's Creek, Orlando",prov:'Dr. Priya Patel',type:'Annual wellness exam',when:'Today',ratings:{checkin:5,lobbywait:4,provwait:4,staff:5,clean:5,care:5,checkout:5,overall:5},rec:'yes',good:'Dr. Patel was so patient and thorough. The staff were warm and welcoming from the moment I arrived.',improve:'',hear:'Google search',first:"No, I've been before",status:'pending',date:'May 11, 2026'},
-  {id:2,name:'Anonymous',loc:'St. Cloud',prov:'Dr. Douglas Gearity',type:'Follow-up appointment',when:'Yesterday',ratings:{checkin:4,lobbywait:3,provwait:3,staff:4,clean:5,care:5,checkout:4,overall:4},rec:'yes',good:'Short wait and the doctor answered all my questions thoroughly.',improve:'Parking can be tricky to find.',hear:'',first:"No, I've been before",status:'pending',date:'May 10, 2026'},
-  {id:3,name:'Renae O.',loc:'Winter Park',prov:'Dr. Isalis Sanchez-Pena',type:'New patient visit',when:'Within the past week',ratings:{checkin:5,lobbywait:5,provwait:5,staff:5,clean:5,care:5,checkout:5,overall:5},rec:'yes',good:'First visit and I felt completely at ease. Highly professional team throughout.',improve:'',hear:'Friend or family referral',first:'Yes, first visit',status:'approved',date:'May 9, 2026'},
-  {id:4,name:'Carmen V.',loc:'Oviedo',prov:'Dr. Yasmine Kareem',type:'Annual wellness exam',when:'Within the past week',ratings:{checkin:3,lobbywait:2,provwait:2,staff:4,clean:4,care:4,checkout:3,overall:3},rec:'maybe',good:'The care from the doctor was good once I was seen.',improve:'Wait time was over 45 minutes past my appointment time.',hear:'Insurance directory',first:"No, I've been before",status:'pending',date:'May 8, 2026'},
-  {id:5,name:'Lisette M.',loc:'Celebration',prov:'Dr. Priya Patel',type:'OB / prenatal visit',when:'Within the past week',ratings:{checkin:5,lobbywait:5,provwait:5,staff:5,clean:5,care:5,checkout:5,overall:5},rec:'yes',good:'Best OB/GYN office in Central Florida. Everyone is kind and professional.',improve:'',hear:'Google Maps',first:"No, I've been before",status:'posted',date:'May 7, 2026'},
+  {id:1,name:'Maria G.',loc:"Hunter's Creek, Orlando",prov:'Dr. Priya Patel',when:'Today',ratings:{checkin:5,lobbywait:4,provwait:4,staff:5,clean:5,care:5,checkout:5,overall:5},rec:'yes',good:'Dr. Patel was so patient and thorough. The staff were warm and welcoming from the moment I arrived.',improve:'',hear:'Google search',first:"No, I've been before",status:'pending',date:'May 11, 2026'},
+  {id:2,name:'Anonymous',loc:'St. Cloud',prov:'Dr. Douglas Gearity',when:'Yesterday',ratings:{checkin:4,lobbywait:3,provwait:3,staff:4,clean:5,care:5,checkout:4,overall:4},rec:'yes',good:'Short wait and the doctor answered all my questions thoroughly.',improve:'Parking can be tricky to find.',hear:'',first:"No, I've been before",status:'pending',date:'May 10, 2026'},
+  {id:3,name:'Renae O.',loc:'Winter Park',prov:'Dr. Isalis Sanchez-Pena',when:'Within the past week',ratings:{checkin:5,lobbywait:5,provwait:5,staff:5,clean:5,care:5,checkout:5,overall:5},rec:'yes',good:'First visit and I felt completely at ease. Highly professional team throughout.',improve:'',hear:'Friend or family referral',first:'Yes, first visit',status:'approved',date:'May 9, 2026'},
+  {id:4,name:'Carmen V.',loc:'Oviedo',prov:'Dr. Yasmine Kareem',when:'Within the past week',ratings:{checkin:3,lobbywait:2,provwait:2,staff:4,clean:4,care:4,checkout:3,overall:3},rec:'maybe',good:'The care from the doctor was good once I was seen.',improve:'Wait time was over 45 minutes past my appointment time.',hear:'Insurance directory',first:"No, I've been before",status:'pending',date:'May 8, 2026'},
+  {id:5,name:'Lisette M.',loc:'Celebration',prov:'Dr. Priya Patel',when:'Within the past week',ratings:{checkin:5,lobbywait:5,provwait:5,staff:5,clean:5,care:5,checkout:5,overall:5},rec:'yes',good:'Best OB/GYN office in Central Florida. Everyone is kind and professional.',improve:'',hear:'Google Maps',first:"No, I've been before",status:'posted',date:'May 7, 2026'},
 ];
 var nextId=6;
 
@@ -454,10 +445,10 @@ function setRec(v){
 }
 
 function next1(){
-  var l=document.getElementById('s1-loc').value,p=document.getElementById('s1-prov').value,t=document.getElementById('s1-type').value;
-  if(!l||!p||!t){document.getElementById('err1').style.display='block';return}
+  var l=document.getElementById('s1-loc').value,p=document.getElementById('s1-prov').value;
+  if(!l||!p){document.getElementById('err1').style.display='block';return}
   document.getElementById('err1').style.display='none';
-  state.loc=l;state.prov=p;state.type=t;state.when=document.getElementById('s1-when').value;
+  state.loc=l;state.prov=p;state.when=document.getElementById('s1-when').value;
   gotoStep(2);
 }
 function next2(){
@@ -480,10 +471,10 @@ function submitReview(){
   showView('v-success');
 }
 function restart(){
-  state={loc:'',prov:'',type:'',when:'',ratings:{},rec:'',good:'',improve:'',name:'',hear:'',first:''};
+  state={loc:'',prov:'',when:'',ratings:{},rec:'',good:'',improve:'',name:'',hear:'',first:''};
   document.querySelectorAll('.star').forEach(function(s){s.classList.remove('lit')});
   document.querySelectorAll('.rec-btn').forEach(function(b){b.classList.remove('sel')});
-  ['s1-loc','s1-prov','s1-type','s1-when','s3-good','s3-improve','s4-name','s4-hear','s4-first'].forEach(function(id){var el=document.getElementById(id);if(el)el.value=''});
+  ['s1-loc','s1-prov','s1-when','s3-good','s3-improve','s4-name','s4-hear','s4-first'].forEach(function(id){var el=document.getElementById(id);if(el)el.value=''});
   showView('v-welcome');
 }
 
@@ -538,7 +529,7 @@ function renderList(){
     if(r.status==='rejected')acts='<span style="font-family:Arial,sans-serif;font-size:11px;color:var(--muted)">Not published</span>';
     return'<div class="rev-card" id="rc-'+r.id+'">'
       +'<div class="rev-top"><div><div class="rev-name">'+r.name+'</div><div class="rev-stars">'+starsHtml(r.ratings.overall||0)+' <span style="font-family:Arial,sans-serif;font-size:11px;color:var(--muted)">'+(r.ratings.overall||'–')+'/5 overall</span></div></div>'+badgeHtml(r.status)+'</div>'
-      +'<div class="rev-meta">'+r.date+' &nbsp;·&nbsp; '+r.loc+' &nbsp;·&nbsp; '+(r.type||'')+'</div>'
+      +'<div class="rev-meta">'+r.date+' &nbsp;·&nbsp; '+r.loc+'</div>'
       +'<div class="tags"><span class="tag">'+r.prov+'</span><span class="tag">Recommend: '+(r.rec||'–')+'</span>'+(r.hear?'<span class="tag">Via: '+r.hear+'</span>':'')+(r.first?'<span class="tag">'+r.first+'</span>':'')+'</div>'
       +(r.good?'<div class="rev-quote">"'+r.good+'"</div>':'')
       +(r.improve?'<div class="rev-improve"><i class="ti ti-message" style="font-size:12px"></i> Improve: "'+r.improve+'"</div>':'')
