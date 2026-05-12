@@ -151,13 +151,15 @@ html,body{background:#FDF8F2;font-family:Georgia,serif;color:#2C1A0E;min-height:
 .sub-row{display:flex;justify-content:space-between;align-items:center;padding:3px 0;border-bottom:1px solid var(--gold-light);font-family:Arial,sans-serif;font-size:11px;color:var(--muted)}
 .sub-row:last-child{border-bottom:none}
 .sub-stars{color:var(--gold);font-size:11px;letter-spacing:1px}
-.act-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;padding-top:10px;border-top:1px solid var(--border)}
-.act{padding:5px 13px;font-family:Arial,sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;border-radius:3px;cursor:pointer;border:1px solid var(--border);background:var(--white);color:var(--muted)}
+.act-row{display:flex;gap:6px;flex-wrap:wrap;align-items:flex-start;margin-top:10px;padding-top:10px;border-top:1px solid var(--border)}
+.act{padding:5px 13px;font-family:Arial,sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;border-radius:3px;cursor:pointer;border:1px solid var(--border);background:var(--white);color:var(--muted);height:auto;align-self:flex-start}
 .act.app{background:#EAF3DE;color:#3B6D11;border-color:#639922}
 .act.rej{background:#FCEBEB;color:#A32D2D;border-color:#E24B4A}
 .act.goo{background:#E6F1FB;color:#185FA5;border-color:#378ADD}
 .act.web{background:#FAEEDA;color:#854F0B;border-color:#EF9F27}
 .act.tra{background:#F3F0FF;color:#4B3B8C;border-color:#9B8FD4}
+.act.del{background:transparent;color:#999;border-color:#CCC}
+.act.del:hover{background:#FCEBEB;color:#A32D2D;border-color:#E24B4A}
 .badge{font-family:Arial,sans-serif;font-size:10px;padding:3px 9px;border-radius:99px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}
 .b-pend{background:#FAEEDA;color:#854F0B}
 .b-appr{background:#EAF3DE;color:#3B6D11}
@@ -646,7 +648,7 @@ function restart(){
 
 function tryLogin(){
   var u=document.getElementById('lu').value.trim(),p=document.getElementById('lp').value.trim();
-  if(u==='director'&&p==='admin123'){
+  if(u.toLowerCase()==='director'&&p==='admin123'){
     document.getElementById('lerr').style.display='none';
     tabFilter='all';renderAdmin();showView('v-admin');
   } else {document.getElementById('lerr').style.display='block'}
@@ -694,6 +696,7 @@ function renderList(){
     if(r.status==='posted')acts='<span style="font-family:Arial,sans-serif;font-size:11px;color:var(--muted)"><i class="ti ti-circle-check"></i> Published online</span>';
     if(r.status==='rejected')acts='<span style="font-family:Arial,sans-serif;font-size:11px;color:var(--muted)">Not published</span>';
     if(r.lang==='es')acts+='<button class="act tra translate-btn" onclick="translateCard('+r.id+')"><i class="ti ti-language"></i> Translate to English</button>';
+    acts+='<button class="act del" onclick="deleteReview('+r.id+')"><i class="ti ti-trash"></i> Delete</button>';
     return'<div class="rev-card" id="rc-'+r.id+'">'
       +'<div class="rev-top"><div><div class="rev-name">'+r.name+'</div><div class="rev-stars">'+starsHtml(r.ratings.overall||0)+' <span style="font-family:Arial,sans-serif;font-size:11px;color:var(--muted)">'+(r.ratings.overall||'–')+'/5 overall</span></div></div>'+badgeHtml(r.status)+'</div>'
       +'<div class="rev-meta">'+r.date+' &nbsp;·&nbsp; '+r.loc+'</div>'
@@ -707,6 +710,11 @@ function renderList(){
 }
 
 function setStatus(id,st){var r=reviews.find(function(x){return x.id===id});if(r)r.status=st;renderList()}
+function deleteReview(id){
+  if(!confirm('Are you sure you want to delete this review? This cannot be undone.'))return;
+  reviews=reviews.filter(function(x){return x.id!==id});
+  renderList();
+}
 function postTo(id,dest){
   var r=reviews.find(function(x){return x.id===id});if(!r)return;
   var txt=r.good||'Great experience at The Women\'s Center.';
