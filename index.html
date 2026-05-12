@@ -85,6 +85,10 @@ html,body{background:#FDF8F2;font-family:Georgia,serif;color:#2C1A0E;min-height:
 /* Form note */
 .form-note{font-family:Arial,sans-serif;font-size:11px;color:var(--muted);line-height:1.5;margin-bottom:10px}
 
+/* Language toggle */
+.lang-toggle{background:var(--gold);color:var(--brown);font-family:Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;border:none;border-radius:99px;padding:4px 12px;cursor:pointer;transition:background .15s;flex-shrink:0}
+.lang-toggle:hover{background:#b8924f}
+
 /* Nav row */
 .nav-row{display:flex;gap:10px;padding:4px 20px 20px}
 
@@ -153,6 +157,7 @@ html,body{background:#FDF8F2;font-family:Georgia,serif;color:#2C1A0E;min-height:
 .act.rej{background:#FCEBEB;color:#A32D2D;border-color:#E24B4A}
 .act.goo{background:#E6F1FB;color:#185FA5;border-color:#378ADD}
 .act.web{background:#FAEEDA;color:#854F0B;border-color:#EF9F27}
+.act.tra{background:#F3F0FF;color:#4B3B8C;border-color:#9B8FD4}
 .badge{font-family:Arial,sans-serif;font-size:10px;padding:3px 9px;border-radius:99px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}
 .b-pend{background:#FAEEDA;color:#854F0B}
 .b-appr{background:#EAF3DE;color:#3B6D11}
@@ -170,30 +175,31 @@ html,body{background:#FDF8F2;font-family:Georgia,serif;color:#2C1A0E;min-height:
 
 <!-- WELCOME -->
 <div id="v-welcome" class="view active">
-  <div class="wc-header">
+  <div class="wc-header" style="justify-content:space-between">
     <div><div class="logo-l1">The Women's Center</div><div class="logo-l2">Orlando · Est. 2001</div></div>
+    <button class="lang-toggle" onclick="toggleLang()">ES</button>
   </div>
   <div class="wc-hero">
-    <div class="eyebrow">Patient experience</div>
-    <div class="hero-title">How was your visit today?</div>
-    <div class="hero-sub">Your feedback helps us continue delivering exceptional women's health care across Central Florida. Takes about 2 minutes and is completely anonymous.</div>
-    <button class="btn-gold" onclick="gotoStep(1)">Share my experience</button>
+    <div class="eyebrow" data-key="eyebrow-welcome">Patient experience</div>
+    <div class="hero-title" data-key="hero-title">How was your visit today?</div>
+    <div class="hero-sub" data-key="hero-sub">Your feedback helps us continue delivering exceptional women's health care across Central Florida. Takes about 2 minutes and is completely anonymous.</div>
+    <button class="btn-gold" onclick="gotoStep(1)" data-key="btn-start">Share my experience</button>
   </div>
-  <div class="notice-bar"><i class="ti ti-shield-check"></i><span>This form collects experience feedback only. No medical, clinical, or protected health information (PHI) is requested or stored. Your responses are anonymous by default and your identity is always optional. Feedback is used for quality improvement and reviewed securely by our team.</span></div>
+  <div class="notice-bar"><i class="ti ti-shield-check"></i><span data-key="notice-welcome">This form collects experience feedback only. No medical, clinical, or protected health information (PHI) is requested or stored. Your responses are anonymous by default and your identity is always optional. Feedback is used for quality improvement and reviewed securely by our team.</span></div>
   <div style="padding:16px 20px 4px;text-align:center">
-    <span class="skip-link" style="padding:0" onclick="showLogin()">Staff / medical director login →</span>
+    <span class="skip-link" style="padding:0" onclick="showLogin()" data-key="login-link">Staff / medical director login →</span>
   </div>
   <div class="wc-footer">The Women's Center &nbsp;·&nbsp; 9 Locations Across Central Florida</div>
 </div>
 
 <!-- STEP 1 -->
 <div id="v-step1" class="view">
-  <div class="wc-header"><div><div class="logo-l1">The Women's Center</div><div class="logo-l2">Guest experience review</div></div></div>
+  <div class="wc-header" style="justify-content:space-between"><div><div class="logo-l1">The Women's Center</div><div class="logo-l2">Guest experience review</div></div><button class="lang-toggle" onclick="toggleLang()">ES</button></div>
   <div class="progress-wrap"><div class="progress-fill" style="width:25%"></div></div>
-  <div class="step-header"><div class="step-eye">Step 1 of 4</div><div class="step-title">About your experience</div></div>
+  <div class="step-header"><div class="step-eye" data-key="step-eye-1">Step 1 of 4</div><div class="step-title" data-key="step-title-1">About your experience</div></div>
   <div class="card">
     <div class="field">
-      <label>Location visited <span class="req">*</span></label>
+      <label><span data-key="lbl-loc">Location visited</span> <span class="req">*</span></label>
       <select id="s1-loc">
         <option value="">Select a location...</option>
         <option>Commerce Park, Altamonte Springs</option>
@@ -208,7 +214,7 @@ html,body{background:#FDF8F2;font-family:Georgia,serif;color:#2C1A0E;min-height:
       </select>
     </div>
     <div class="field">
-      <label>Provider you saw</label>
+      <label data-key="lbl-prov">Provider you saw</label>
       <select id="s1-prov">
         <option value="">Select a provider...</option>
         <optgroup label="OB-GYN Physicians">
@@ -232,86 +238,86 @@ html,body{background:#FDF8F2;font-family:Georgia,serif;color:#2C1A0E;min-height:
       </select>
     </div>
     <div class="field">
-      <label>When was your visit?</label>
+      <label data-key="lbl-when">When was your visit?</label>
       <select id="s1-when">
         <option value="">Select...</option>
         <option>Today</option><option>Yesterday</option><option>Within the past week</option><option>Within the past month</option>
       </select>
     </div>
-    <div class="err-msg" id="err1">Please select a location to continue.</div>
+    <div class="err-msg" id="err1" data-key="err1">Please select a location to continue.</div>
   </div>
   <div class="nav-row">
-    <button class="btn-back" onclick="gotoStep(0)">← Back</button>
-    <button class="btn-gold" style="flex:1" onclick="next1()">Continue →</button>
+    <button class="btn-back" onclick="gotoStep(0)" data-key="btn-back">← Back</button>
+    <button class="btn-gold" style="flex:1" onclick="next1()" data-key="btn-continue">Continue →</button>
   </div>
 </div>
 
 <!-- STEP 2 -->
 <div id="v-step2" class="view">
-  <div class="wc-header"><div><div class="logo-l1">The Women's Center</div><div class="logo-l2">Guest experience review</div></div></div>
+  <div class="wc-header" style="justify-content:space-between"><div><div class="logo-l1">The Women's Center</div><div class="logo-l2">Guest experience review</div></div><button class="lang-toggle" onclick="toggleLang()">ES</button></div>
   <div class="progress-wrap"><div class="progress-fill" style="width:50%"></div></div>
-  <div class="step-header"><div class="step-eye">Step 2 of 4</div><div class="step-title">Rate your experience</div></div>
+  <div class="step-header"><div class="step-eye" data-key="step-eye-2">Step 2 of 4</div><div class="step-title" data-key="step-title-2">Rate your experience</div></div>
   <div style="padding:16px 20px 4px">
-    <div class="rating-block"><div class="rating-label">Arrival &amp; check-in</div><div class="rating-sub">Finding the office, parking, and front desk check-in process</div><div class="stars-row" id="stars-checkin"></div></div>
-    <div class="rating-block"><div class="rating-label">Lobby wait time</div><div class="rating-sub">Time spent waiting before being called back</div><div class="stars-row" id="stars-lobbywait"></div></div>
-    <div class="rating-block"><div class="rating-label">Wait time to see provider</div><div class="rating-sub">Time from being called back to seeing your provider</div><div class="stars-row" id="stars-provwait"></div></div>
-    <div class="rating-block"><div class="rating-label">Staff friendliness</div><div class="rating-sub">How welcoming, kind, and attentive the staff were</div><div class="stars-row" id="stars-staff"></div></div>
-    <div class="rating-block"><div class="rating-label">Cleanliness &amp; comfort</div><div class="rating-sub">Office and exam room cleanliness, comfort, and environment</div><div class="stars-row" id="stars-clean"></div></div>
-    <div class="rating-block"><div class="rating-label">Care from your provider</div><div class="rating-sub">How heard, informed, and cared for you felt</div><div class="stars-row" id="stars-care"></div></div>
-    <div class="rating-block"><div class="rating-label">Check-out experience</div><div class="rating-sub">Ease of scheduling your next appointment, checkout process, and follow-up instructions</div><div class="stars-row" id="stars-checkout"></div></div>
-    <div class="rating-block featured"><div class="rating-label">Overall experience <span class="req">*</span></div><div class="rating-sub">Your overall impression of today's visit</div><div class="stars-row" id="stars-overall"></div></div>
-    <div class="err-msg" id="err2" style="margin-bottom:10px">Please rate your overall experience to continue.</div>
+    <div class="rating-block"><div class="rating-label" data-key="rl-checkin">Arrival &amp; check-in</div><div class="rating-sub" data-key="rd-checkin">Finding the office, parking, and front desk check-in process</div><div class="stars-row" id="stars-checkin"></div></div>
+    <div class="rating-block"><div class="rating-label" data-key="rl-lobbywait">Lobby wait time</div><div class="rating-sub" data-key="rd-lobbywait">Time spent waiting before being called back</div><div class="stars-row" id="stars-lobbywait"></div></div>
+    <div class="rating-block"><div class="rating-label" data-key="rl-provwait">Wait time to see provider</div><div class="rating-sub" data-key="rd-provwait">Time from being called back to seeing your provider</div><div class="stars-row" id="stars-provwait"></div></div>
+    <div class="rating-block"><div class="rating-label" data-key="rl-staff">Staff friendliness</div><div class="rating-sub" data-key="rd-staff">How welcoming, kind, and attentive the staff were</div><div class="stars-row" id="stars-staff"></div></div>
+    <div class="rating-block"><div class="rating-label" data-key="rl-clean">Cleanliness &amp; comfort</div><div class="rating-sub" data-key="rd-clean">Office and exam room cleanliness, comfort, and environment</div><div class="stars-row" id="stars-clean"></div></div>
+    <div class="rating-block"><div class="rating-label" data-key="rl-care">Care from your provider</div><div class="rating-sub" data-key="rd-care">How heard, informed, and cared for you felt</div><div class="stars-row" id="stars-care"></div></div>
+    <div class="rating-block"><div class="rating-label" data-key="rl-checkout">Check-out experience</div><div class="rating-sub" data-key="rd-checkout">Ease of scheduling your next appointment, checkout process, and follow-up instructions</div><div class="stars-row" id="stars-checkout"></div></div>
+    <div class="rating-block featured"><div class="rating-label"><span data-key="rl-overall">Overall experience</span> <span class="req">*</span></div><div class="rating-sub" data-key="rd-overall">Your overall impression of today's visit</div><div class="stars-row" id="stars-overall"></div></div>
+    <div class="err-msg" id="err2" style="margin-bottom:10px" data-key="err2">Please rate your overall experience to continue.</div>
   </div>
   <div class="nav-row">
-    <button class="btn-back" onclick="gotoStep(1)">← Back</button>
-    <button class="btn-gold" style="flex:1" onclick="next2()">Continue →</button>
+    <button class="btn-back" onclick="gotoStep(1)" data-key="btn-back">← Back</button>
+    <button class="btn-gold" style="flex:1" onclick="next2()" data-key="btn-continue">Continue →</button>
   </div>
 </div>
 
 <!-- STEP 3 -->
 <div id="v-step3" class="view">
-  <div class="wc-header"><div><div class="logo-l1">The Women's Center</div><div class="logo-l2">Guest experience review</div></div></div>
+  <div class="wc-header" style="justify-content:space-between"><div><div class="logo-l1">The Women's Center</div><div class="logo-l2">Guest experience review</div></div><button class="lang-toggle" onclick="toggleLang()">ES</button></div>
   <div class="progress-wrap"><div class="progress-fill" style="width:75%"></div></div>
-  <div class="step-header"><div class="step-eye">Step 3 of 4</div><div class="step-title">In your own words</div></div>
+  <div class="step-header"><div class="step-eye" data-key="step-eye-3">Step 3 of 4</div><div class="step-title" data-key="step-title-3">In your own words</div></div>
   <div class="card">
     <div class="field">
-      <label>What went well during your visit?</label>
-      <p class="form-note">Please do not include medical conditions, diagnoses, medications, or personal health information.</p>
-      <textarea id="s3-good" placeholder="e.g. The staff made me feel comfortable, the wait was short..."></textarea>
+      <label data-key="lbl-good">What went well during your visit?</label>
+      <p class="form-note" data-key="phi-note">Please do not include medical conditions, diagnoses, medications, or personal health information.</p>
+      <textarea id="s3-good" data-ph-key="ph-good" placeholder="e.g. The staff made me feel comfortable, the wait was short..."></textarea>
     </div>
     <div class="field">
-      <label>What could we improve?</label>
-      <p class="form-note">Please do not include medical conditions, diagnoses, medications, or personal health information.</p>
-      <textarea id="s3-improve" placeholder="e.g. The check-in process took a while..."></textarea>
+      <label data-key="lbl-improve">What could we improve?</label>
+      <p class="form-note" data-key="phi-note">Please do not include medical conditions, diagnoses, medications, or personal health information.</p>
+      <textarea id="s3-improve" data-ph-key="ph-improve" placeholder="e.g. The check-in process took a while..."></textarea>
     </div>
     <div class="field">
-      <label>Would you recommend The Women's Center? <span class="req">*</span></label>
+      <label><span data-key="lbl-rec">Would you recommend The Women's Center?</span> <span class="req">*</span></label>
       <div class="rec-row">
-        <button class="rec-btn" id="rec-yes" onclick="setRec('yes')">Yes, definitely</button>
-        <button class="rec-btn" id="rec-maybe" onclick="setRec('maybe')">Maybe</button>
-        <button class="rec-btn" id="rec-no" onclick="setRec('no')">No</button>
+        <button class="rec-btn" id="rec-yes" onclick="setRec('yes')" data-key="rec-yes">Yes, definitely</button>
+        <button class="rec-btn" id="rec-maybe" onclick="setRec('maybe')" data-key="rec-maybe">Maybe</button>
+        <button class="rec-btn" id="rec-no" onclick="setRec('no')" data-key="rec-no">No</button>
       </div>
     </div>
-    <div class="err-msg" id="err3">Please let us know if you'd recommend us.</div>
+    <div class="err-msg" id="err3" data-key="err3">Please let us know if you'd recommend us.</div>
   </div>
   <div class="nav-row">
-    <button class="btn-back" onclick="gotoStep(2)">← Back</button>
-    <button class="btn-gold" style="flex:1" onclick="next3()">Continue →</button>
+    <button class="btn-back" onclick="gotoStep(2)" data-key="btn-back">← Back</button>
+    <button class="btn-gold" style="flex:1" onclick="next3()" data-key="btn-continue">Continue →</button>
   </div>
 </div>
 
 <!-- STEP 4 -->
 <div id="v-step4" class="view">
-  <div class="wc-header"><div><div class="logo-l1">The Women's Center</div><div class="logo-l2">Guest experience review</div></div></div>
+  <div class="wc-header" style="justify-content:space-between"><div><div class="logo-l1">The Women's Center</div><div class="logo-l2">Guest experience review</div></div><button class="lang-toggle" onclick="toggleLang()">ES</button></div>
   <div class="progress-wrap"><div class="progress-fill" style="width:92%"></div></div>
-  <div class="step-header"><div class="step-eye">Step 4 of 4 – Optional</div><div class="step-title">One last thing</div></div>
+  <div class="step-header"><div class="step-eye" data-key="step-eye-4">Step 4 of 4 – Optional</div><div class="step-title" data-key="step-title-4">One last thing</div></div>
   <div class="card">
     <div class="field">
-      <label>First Name (Optional)</label>
-      <input type="text" id="s4-name" placeholder="Enter your first name" maxlength="40">
+      <label data-key="lbl-name">First Name (Optional)</label>
+      <input type="text" id="s4-name" data-ph-key="ph-name" placeholder="Enter your first name" maxlength="40">
     </div>
     <div class="field">
-      <label>How did you hear about us?</label>
+      <label data-key="lbl-hear">How did you hear about us?</label>
       <select id="s4-hear">
         <option value="">Select...</option>
         <option>Google search</option><option>Google Maps</option><option>Friend or family referral</option>
@@ -319,60 +325,60 @@ html,body{background:#FDF8F2;font-family:Georgia,serif;color:#2C1A0E;min-height:
       </select>
     </div>
     <div class="field">
-      <label>Is this your first visit?</label>
+      <label data-key="lbl-first">Is this your first visit?</label>
       <select id="s4-first">
         <option value="">Select...</option>
-        <option>Yes, first visit</option><option>No, I've been before</option>
+        <option value="Yes, first visit" data-key="opt-first-yes">Yes, first visit</option><option value="No, I've been before" data-key="opt-first-no">No, I've been before</option>
       </select>
     </div>
     <div class="field">
-      <label>What was the best part of your visit?</label>
+      <label data-key="lbl-highlight">What was the best part of your visit?</label>
       <div class="tap-row">
-        <button class="tap-btn" id="hl-staff" onclick="setHighlight('The staff')">The staff</button>
-        <button class="tap-btn" id="hl-wait" onclick="setHighlight('Short wait')">Short wait</button>
-        <button class="tap-btn" id="hl-prov" onclick="setHighlight('My provider')">My provider</button>
-        <button class="tap-btn" id="hl-clean" onclick="setHighlight('Clean office')">Clean office</button>
-        <button class="tap-btn" id="hl-checkin" onclick="setHighlight('Easy check-in')">Easy check-in</button>
-        <button class="tap-btn" id="hl-heard" onclick="setHighlight('Felt heard')">Felt heard</button>
+        <button class="tap-btn" id="hl-staff" onclick="setHighlight('The staff')" data-key="hl-staff">The staff</button>
+        <button class="tap-btn" id="hl-wait" onclick="setHighlight('Short wait')" data-key="hl-wait">Short wait</button>
+        <button class="tap-btn" id="hl-prov" onclick="setHighlight('My provider')" data-key="hl-prov">My provider</button>
+        <button class="tap-btn" id="hl-clean" onclick="setHighlight('Clean office')" data-key="hl-clean">Clean office</button>
+        <button class="tap-btn" id="hl-checkin" onclick="setHighlight('Easy check-in')" data-key="hl-checkin">Easy check-in</button>
+        <button class="tap-btn" id="hl-heard" onclick="setHighlight('Felt heard')" data-key="hl-heard">Felt heard</button>
       </div>
     </div>
     <div class="field">
-      <label>Did you feel your concerns were heard?</label>
+      <label data-key="lbl-feltheard">Did you feel your concerns were heard?</label>
       <div class="rec-row">
-        <button class="rec-btn" id="fh-yes" onclick="setFeltHeard('yes')">Yes</button>
-        <button class="rec-btn" id="fh-no" onclick="setFeltHeard('no')">No</button>
+        <button class="rec-btn" id="fh-yes" onclick="setFeltHeard('yes')" data-key="fh-yes">Yes</button>
+        <button class="rec-btn" id="fh-no" onclick="setFeltHeard('no')" data-key="fh-no">No</button>
       </div>
     </div>
   </div>
-  <div class="notice-bar"><i class="ti ti-shield-check"></i><span>No medical or health information is collected. This is an experience-based review only. Your identity is always optional.</span></div>
-  <p class="form-note" style="padding:0 20px;margin-top:12px">This form is for service experience feedback only and should not include medical or personal health information.</p>
+  <div class="notice-bar"><i class="ti ti-shield-check"></i><span data-key="notice-step4">No medical or health information is collected. This is an experience-based review only. Your identity is always optional.</span></div>
+  <p class="form-note" style="padding:0 20px;margin-top:12px" data-key="disclaimer">This form is for service experience feedback only and should not include medical or personal health information.</p>
   <div class="nav-row" style="margin-top:8px">
-    <button class="btn-back" onclick="gotoStep(3)">← Back</button>
-    <button class="btn-gold" style="flex:1" onclick="submitReview()">Submit review</button>
+    <button class="btn-back" onclick="gotoStep(3)" data-key="btn-back">← Back</button>
+    <button class="btn-gold" style="flex:1" onclick="submitReview()" data-key="btn-submit">Submit review</button>
   </div>
 </div>
 
 <!-- SUCCESS -->
 <div id="v-success" class="view">
-  <div class="wc-header"><div><div class="logo-l1">The Women's Center</div><div class="logo-l2">Guest experience review</div></div></div>
+  <div class="wc-header" style="justify-content:space-between"><div><div class="logo-l1">The Women's Center</div><div class="logo-l2">Guest experience review</div></div><button class="lang-toggle" onclick="toggleLang()">ES</button></div>
   <div class="wc-hero" style="padding:40px 24px">
     <div class="success-icon"><i class="ti ti-circle-check"></i></div>
-    <div class="eyebrow">Thank you!</div>
-    <div class="hero-title" style="font-size:24px">Your review has been submitted</div>
-    <div class="hero-sub">Our medical director will review your feedback before publishing. Your experience helps us improve care for every patient at all 9 of our locations.</div>
-    <div style="font-family:Arial,sans-serif;font-size:11px;color:var(--gold-light);max-width:380px;margin:0 auto 20px;line-height:1.6">All feedback is stored securely with access limited to authorized personnel. Data is retained only as long as necessary for quality improvement.</div>
-    <button class="btn-gold" onclick="restart()">Submit another review</button>
+    <div class="eyebrow" data-key="eyebrow-success">Thank you!</div>
+    <div class="hero-title" style="font-size:24px" data-key="success-title">Your review has been submitted</div>
+    <div class="hero-sub" data-key="success-sub">Our medical director will review your feedback before publishing. Your experience helps us improve care for every patient at all 9 of our locations.</div>
+    <div style="font-family:Arial,sans-serif;font-size:11px;color:var(--gold-light);max-width:380px;margin:0 auto 20px;line-height:1.6" data-key="success-privacy">All feedback is stored securely with access limited to authorized personnel. Data is retained only as long as necessary for quality improvement.</div>
+    <button class="btn-gold" onclick="restart()" data-key="btn-restart">Submit another review</button>
   </div>
   <div id="google-prompt" style="display:none;margin:0 20px 16px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:16px 18px;text-align:center">
-    <div style="font-family:Georgia,serif;font-size:14px;color:var(--brown);margin-bottom:12px">We're so glad you had a great experience. Would you mind sharing your feedback on Google?</div>
-    <a href="https://search.google.com/local/writereview?placeid=ChIJ9b5M6HJw54gR1BkW6lGC6HA" target="_blank" rel="noopener noreferrer" class="btn-gold" style="text-decoration:none">Leave a Google Review</a>
+    <div style="font-family:Georgia,serif;font-size:14px;color:var(--brown);margin-bottom:12px" data-key="google-prompt-text">We're so glad you had a great experience. Would you mind sharing your feedback on Google?</div>
+    <a href="https://search.google.com/local/writereview?placeid=ChIJ9b5M6HJw54gR1BkW6lGC6HA" target="_blank" rel="noopener noreferrer" class="btn-gold" style="text-decoration:none" data-key="btn-google">Leave a Google Review</a>
   </div>
   <div class="qr-card">
     <div class="qr-icon"><i class="ti ti-qrcode"></i></div>
-    <div class="qr-text"><strong>Know someone who visited us?</strong><br>Share this review link or point them to the QR code at the front desk. Every review helps us grow and improve.</div>
+    <div class="qr-text"><strong data-key="qr-strong">Know someone who visited us?</strong><br><span data-key="qr-body">Share this review link or point them to the QR code at the front desk. Every review helps us grow and improve.</span></div>
   </div>
   <div style="padding:0 20px 20px;text-align:center">
-    <span class="skip-link" style="padding:0" onclick="showLogin()">Medical director login →</span>
+    <span class="skip-link" style="padding:0" onclick="showLogin()" data-key="director-link">Medical director login →</span>
   </div>
   <div class="wc-footer">The Women's Center &nbsp;·&nbsp; wcorlando.com</div>
 </div>
@@ -436,7 +442,7 @@ html,body{background:#FDF8F2;font-family:Georgia,serif;color:#2C1A0E;min-height:
 </div><!-- end .app -->
 
 <script>
-var state={loc:'',prov:'',when:'',ratings:{},rec:'',good:'',improve:'',name:'',hear:'',first:'',highlight:'',feltHeard:''};
+var state={loc:'',prov:'',when:'',ratings:{},rec:'',good:'',improve:'',name:'',hear:'',first:'',highlight:'',feltHeard:'',lang:'en'};
 var tabFilter='all';
 var ratingIds=['checkin','lobbywait','provwait','staff','clean','care','checkout','overall'];
 var ratingLabels={checkin:'Check-in',lobbywait:'Lobby wait',provwait:'Provider wait',staff:'Staff',clean:'Cleanliness',care:'Provider care',checkout:'Check-out',overall:'Overall'};
@@ -449,6 +455,116 @@ var reviews=[
   {id:5,name:'Lisette M.',loc:'Celebration',prov:'Dr. Priya Patel',when:'Within the past week',ratings:{checkin:5,lobbywait:5,provwait:5,staff:5,clean:5,care:5,checkout:5,overall:5},rec:'yes',good:'Best OB/GYN office in Central Florida. Everyone is kind and professional.',improve:'',hear:'Google Maps',first:"No, I've been before",highlight:'The staff',feltHeard:'yes',status:'posted',date:'May 7, 2026'},
 ];
 var nextId=6;
+var lang='en';
+var strings={
+  en:{
+    'eyebrow-welcome':'Patient experience','hero-title':'How was your visit today?',
+    'hero-sub':'Your feedback helps us continue delivering exceptional women\'s health care across Central Florida. Takes about 2 minutes and is completely anonymous.',
+    'btn-start':'Share my experience',
+    'notice-welcome':'This form collects experience feedback only. No medical, clinical, or protected health information (PHI) is requested or stored. Your responses are anonymous by default and your identity is always optional. Feedback is used for quality improvement and reviewed securely by our team.',
+    'login-link':'Staff / medical director login →',
+    'step-eye-1':'Step 1 of 4','step-title-1':'About your experience',
+    'step-eye-2':'Step 2 of 4','step-title-2':'Rate your experience',
+    'step-eye-3':'Step 3 of 4','step-title-3':'In your own words',
+    'step-eye-4':'Step 4 of 4 – Optional','step-title-4':'One last thing',
+    'lbl-loc':'Location visited','lbl-prov':'Provider you saw','lbl-when':'When was your visit?',
+    'err1':'Please select a location to continue.',
+    'rl-checkin':'Arrival & check-in','rd-checkin':'Finding the office, parking, and front desk check-in process',
+    'rl-lobbywait':'Lobby wait time','rd-lobbywait':'Time spent waiting before being called back',
+    'rl-provwait':'Wait time to see provider','rd-provwait':'Time from being called back to seeing your provider',
+    'rl-staff':'Staff friendliness','rd-staff':'How welcoming, kind, and attentive the staff were',
+    'rl-clean':'Cleanliness & comfort','rd-clean':'Office and exam room cleanliness, comfort, and environment',
+    'rl-care':'Care from your provider','rd-care':'How heard, informed, and cared for you felt',
+    'rl-checkout':'Check-out experience','rd-checkout':'Ease of scheduling your next appointment, checkout process, and follow-up instructions',
+    'rl-overall':'Overall experience','rd-overall':'Your overall impression of today\'s visit',
+    'err2':'Please rate your overall experience to continue.',
+    'lbl-good':'What went well during your visit?','ph-good':'e.g. The staff made me feel comfortable, the wait was short...',
+    'phi-note':'Please do not include medical conditions, diagnoses, medications, or personal health information.',
+    'lbl-improve':'What could we improve?','ph-improve':'e.g. The check-in process took a while...',
+    'lbl-rec':'Would you recommend The Women\'s Center?',
+    'rec-yes':'Yes, definitely','rec-maybe':'Maybe','rec-no':'No',
+    'err3':'Please let us know if you\'d recommend us.',
+    'lbl-name':'First Name (Optional)','ph-name':'Enter your first name',
+    'lbl-hear':'How did you hear about us?','lbl-first':'Is this your first visit?',
+    'opt-first-yes':'Yes, first visit','opt-first-no':'No, I\'ve been before',
+    'lbl-highlight':'What was the best part of your visit?',
+    'hl-staff':'The staff','hl-wait':'Short wait','hl-prov':'My provider','hl-clean':'Clean office','hl-checkin':'Easy check-in','hl-heard':'Felt heard',
+    'lbl-feltheard':'Did you feel your concerns were heard?','fh-yes':'Yes','fh-no':'No',
+    'notice-step4':'No medical or health information is collected. This is an experience-based review only. Your identity is always optional.',
+    'disclaimer':'This form is for service experience feedback only and should not include medical or personal health information.',
+    'btn-back':'← Back','btn-continue':'Continue →','btn-submit':'Submit review',
+    'eyebrow-success':'Thank you!','success-title':'Your review has been submitted',
+    'success-sub':'Our medical director will review your feedback before publishing. Your experience helps us improve care for every patient at all 9 of our locations.',
+    'success-privacy':'All feedback is stored securely with access limited to authorized personnel. Data is retained only as long as necessary for quality improvement.',
+    'btn-restart':'Submit another review',
+    'google-prompt-text':'We\'re so glad you had a great experience. Would you mind sharing your feedback on Google?',
+    'btn-google':'Leave a Google Review',
+    'qr-strong':'Know someone who visited us?','qr-body':'Share this review link or point them to the QR code at the front desk. Every review helps us grow and improve.',
+    'director-link':'Medical director login →'
+  },
+  es:{
+    'eyebrow-welcome':'Experiencia del paciente','hero-title':'¿Cómo fue su visita hoy?',
+    'hero-sub':'Sus comentarios nos ayudan a continuar brindando atención médica excepcional para la mujer en todo el centro de Florida. Toma aproximadamente 2 minutos y es completamente anónimo.',
+    'btn-start':'Compartir mi experiencia',
+    'notice-welcome':'Este formulario recopila solo comentarios sobre la experiencia. No se solicita ni almacena información médica, clínica ni de salud protegida (PHI). Sus respuestas son anónimas por defecto y su identidad es siempre opcional. Los comentarios se usan para mejorar la calidad y son revisados de forma segura por nuestro equipo.',
+    'login-link':'Inicio de sesión del personal →',
+    'step-eye-1':'Paso 1 de 4','step-title-1':'Sobre su experiencia',
+    'step-eye-2':'Paso 2 de 4','step-title-2':'Califique su experiencia',
+    'step-eye-3':'Paso 3 de 4','step-title-3':'En sus propias palabras',
+    'step-eye-4':'Paso 4 de 4 – Opcional','step-title-4':'Un último detalle',
+    'lbl-loc':'Ubicación visitada','lbl-prov':'Proveedor que atendió','lbl-when':'¿Cuándo fue su visita?',
+    'err1':'Por favor seleccione una ubicación para continuar.',
+    'rl-checkin':'Llegada y registro','rd-checkin':'Cómo encontrar la oficina, estacionamiento y proceso de registro en recepción',
+    'rl-lobbywait':'Tiempo de espera en sala','rd-lobbywait':'Tiempo de espera antes de ser llamado',
+    'rl-provwait':'Espera para ver al proveedor','rd-provwait':'Tiempo desde que fue llamado hasta ver a su proveedor',
+    'rl-staff':'Amabilidad del personal','rd-staff':'Qué tan amable, atento y acogedor fue el personal',
+    'rl-clean':'Limpieza y comodidad','rd-clean':'Limpieza, comodidad y ambiente de la oficina y sala de examen',
+    'rl-care':'Atención de su proveedor','rd-care':'Qué tan escuchado, informado y atendido se sintió',
+    'rl-checkout':'Experiencia de salida','rd-checkout':'Facilidad para programar su próxima cita, proceso de salida e instrucciones de seguimiento',
+    'rl-overall':'Experiencia general','rd-overall':'Su impresión general de la visita de hoy',
+    'err2':'Por favor califique su experiencia general para continuar.',
+    'lbl-good':'¿Qué salió bien durante su visita?','ph-good':'p. ej. El personal me hizo sentir cómodo/a, la espera fue corta...',
+    'phi-note':'Por favor no incluya condiciones médicas, diagnósticos, medicamentos ni información de salud personal.',
+    'lbl-improve':'¿Qué podríamos mejorar?','ph-improve':'p. ej. El proceso de registro tomó un tiempo...',
+    'lbl-rec':'¿Recomendaría The Women\'s Center?',
+    'rec-yes':'Sí, definitivamente','rec-maybe':'Tal vez','rec-no':'No',
+    'err3':'Por favor indíquenos si nos recomendaría.',
+    'lbl-name':'Nombre (Opcional)','ph-name':'Ingrese su nombre',
+    'lbl-hear':'¿Cómo nos conoció?','lbl-first':'¿Es su primera visita?',
+    'opt-first-yes':'Sí, primera visita','opt-first-no':'No, ya he venido antes',
+    'lbl-highlight':'¿Cuál fue la mejor parte de su visita?',
+    'hl-staff':'El personal','hl-wait':'Poca espera','hl-prov':'Mi proveedor','hl-clean':'Oficina limpia','hl-checkin':'Registro fácil','hl-heard':'Me sentí escuchado/a',
+    'lbl-feltheard':'¿Sintió que sus preguntas fueron escuchadas?','fh-yes':'Sí','fh-no':'No',
+    'notice-step4':'No se recopila información médica o de salud. Esta es una reseña basada en la experiencia únicamente. Su identidad es siempre opcional.',
+    'disclaimer':'Este formulario es solo para comentarios sobre la experiencia del servicio y no debe incluir información médica o de salud personal.',
+    'btn-back':'← Atrás','btn-continue':'Continuar →','btn-submit':'Enviar reseña',
+    'eyebrow-success':'¡Gracias!','success-title':'Su reseña ha sido enviada',
+    'success-sub':'Nuestro director médico revisará sus comentarios antes de publicarlos. Su experiencia nos ayuda a mejorar la atención de cada paciente en nuestras 9 ubicaciones.',
+    'success-privacy':'Todos los comentarios se almacenan de forma segura con acceso limitado al personal autorizado. Los datos se conservan solo el tiempo necesario para la mejora de la calidad.',
+    'btn-restart':'Enviar otra reseña',
+    'google-prompt-text':'Nos alegra que haya tenido una gran experiencia. ¿Le importaría compartir su opinión en Google?',
+    'btn-google':'Dejar una reseña en Google',
+    'qr-strong':'¿Conoce a alguien que nos visitó?','qr-body':'Comparta este enlace de reseña o indíquele el código QR en la recepción. Cada reseña nos ayuda a crecer y mejorar.',
+    'director-link':'Inicio de sesión del director médico →'
+  }
+};
+
+function toggleLang(){
+  lang=lang==='en'?'es':'en';
+  document.querySelectorAll('.lang-toggle').forEach(function(b){b.textContent=lang==='en'?'ES':'EN'});
+  applyLang();
+}
+function applyLang(){
+  var s=strings[lang];
+  document.querySelectorAll('[data-key]').forEach(function(el){
+    var k=el.getAttribute('data-key');
+    if(s[k]!==undefined)el.textContent=s[k];
+  });
+  document.querySelectorAll('[data-ph-key]').forEach(function(el){
+    var k=el.getAttribute('data-ph-key');
+    if(s[k]!==undefined)el.placeholder=s[k];
+  });
+}
 
 function showView(id){document.querySelectorAll('.view').forEach(function(v){v.classList.remove('active')});document.getElementById(id).classList.add('active');window.scrollTo(0,0)}
 function gotoStep(n){var m={0:'v-welcome',1:'v-step1',2:'v-step2',3:'v-step3',4:'v-step4'};if(m[n])showView(m[n])}
@@ -509,6 +625,7 @@ function next3(){
   document.getElementById('err3').style.display='none';gotoStep(4);
 }
 function submitReview(){
+  state.lang=lang;
   state.name=document.getElementById('s4-name').value.trim()||'Anonymous';
   state.hear=document.getElementById('s4-hear').value;
   state.first=document.getElementById('s4-first').value;
@@ -520,7 +637,7 @@ function submitReview(){
   showView('v-success');
 }
 function restart(){
-  state={loc:'',prov:'',when:'',ratings:{},rec:'',good:'',improve:'',name:'',hear:'',first:'',highlight:'',feltHeard:''};
+  state={loc:'',prov:'',when:'',ratings:{},rec:'',good:'',improve:'',name:'',hear:'',first:'',highlight:'',feltHeard:'',lang:lang};
   document.querySelectorAll('.star').forEach(function(s){s.classList.remove('lit')});
   document.querySelectorAll('.rec-btn,.tap-btn').forEach(function(b){b.classList.remove('sel')});
   ['s1-loc','s1-prov','s1-when','s3-good','s3-improve','s4-name','s4-hear','s4-first'].forEach(function(id){var el=document.getElementById(id);if(el)el.value=''});
@@ -576,6 +693,7 @@ function renderList(){
     if(r.status==='approved')acts='<button class="act goo" onclick="postTo('+r.id+',\'google\')"><i class="ti ti-brand-google"></i> Post to Google</button><button class="act web" onclick="postTo('+r.id+',\'web\')"><i class="ti ti-world"></i> Post to website</button>';
     if(r.status==='posted')acts='<span style="font-family:Arial,sans-serif;font-size:11px;color:var(--muted)"><i class="ti ti-circle-check"></i> Published online</span>';
     if(r.status==='rejected')acts='<span style="font-family:Arial,sans-serif;font-size:11px;color:var(--muted)">Not published</span>';
+    if(r.lang==='es')acts+='<button class="act tra translate-btn" onclick="translateCard('+r.id+')"><i class="ti ti-language"></i> Translate to English</button>';
     return'<div class="rev-card" id="rc-'+r.id+'">'
       +'<div class="rev-top"><div><div class="rev-name">'+r.name+'</div><div class="rev-stars">'+starsHtml(r.ratings.overall||0)+' <span style="font-family:Arial,sans-serif;font-size:11px;color:var(--muted)">'+(r.ratings.overall||'–')+'/5 overall</span></div></div>'+badgeHtml(r.status)+'</div>'
       +'<div class="rev-meta">'+r.date+' &nbsp;·&nbsp; '+r.loc+'</div>'
@@ -594,6 +712,41 @@ function postTo(id,dest){
   var txt=r.good||'Great experience at The Women\'s Center.';
   alert((dest==='google'?'Copy to Google Business Profile:\n\n':'Copy to website testimonials:\n\n')+'"'+txt+'"');
   r.status='posted';renderList();
+}
+
+function translateCard(id){
+  var r=reviews.find(function(x){return x.id===id});if(!r)return;
+  var card=document.getElementById('rc-'+id);
+  var btn=card?card.querySelector('.translate-btn'):null;
+  if(btn){btn.disabled=true;btn.textContent='Translating...';}
+  var calls=[];
+  if(r.good)calls.push({field:'good',text:r.good});
+  if(r.improve)calls.push({field:'improve',text:r.improve});
+  if(!calls.length){if(btn){btn.disabled=false;}return;}
+  var results={};var remaining=calls.length;
+  calls.forEach(function(c){
+    fetch('https://api.mymemory.translated.net/get?q='+encodeURIComponent(c.text)+'&langpair=es|en')
+      .then(function(res){return res.json();})
+      .then(function(data){
+        results[c.field]=(data.responseData&&data.responseData.translatedText)||c.text;
+        remaining--;if(!remaining)showTranslation(id,results,btn);
+      })
+      .catch(function(){remaining--;if(!remaining)showTranslation(id,results,btn);});
+  });
+}
+function showTranslation(id,results,btn){
+  var card=document.getElementById('rc-'+id);if(!card)return;
+  var ex=card.querySelector('.translated-text');if(ex)ex.remove();
+  var div=document.createElement('div');
+  div.className='translated-text';
+  div.style.cssText='font-family:Arial,sans-serif;font-size:11px;color:var(--muted);font-style:italic;margin-bottom:8px;padding:8px 10px;background:var(--rose);border-radius:3px;border-left:2px solid var(--gold)';
+  var html='<span style="font-family:Arial,sans-serif;font-weight:700;font-style:normal;color:var(--brown)">Translated:</span> ';
+  if(results.good)html+='"'+results.good+'"';
+  if(results.improve)html+=(results.good?'<br>':'')+' Improve: "'+results.improve+'"';
+  div.innerHTML=html;
+  var actRow=card.querySelector('.act-row');
+  if(actRow)actRow.insertAdjacentElement('beforebegin',div);
+  if(btn){btn.disabled=false;btn.textContent='Translate to English';}
 }
 
 buildStars();
