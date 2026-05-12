@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Women's Center – Guest Experience Review</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.14.0/dist/tabler-icons.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#FDF8F2;font-family:Georgia,serif;color:#2C1A0E;min-height:100vh}
+:root{
+  --brown:#4A2C0A;
+  --brown-mid:#7A4A1E;
+  --gold:#C9A96E;
+  --gold-light:#E8D5C4;
+  --cream:#FDF8F2;
+  --white:#FFFFFF;
+  --text:#2C1A0E;
+  --muted:#7A5C42;
+  --border:#DEC9B0;
+  --rose:#F5EDE3;
+}
+.app{max-width:600px;margin:0 auto;background:var(--cream);min-height:100vh}
+.view{display:none}.view.active{display:block}
+
+/* Header */
+.wc-header{background:var(--brown);padding:14px 20px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:10}
+.logo-l1{font-family:Georgia,serif;font-size:16px;font-weight:700;color:#fff;letter-spacing:.02em}
+.logo-l2{font-family:Arial,sans-serif;font-size:10px;color:var(--gold);letter-spacing:.14em;text-transform:uppercase;margin-top:1px}
+
+/* Hero */
+.wc-hero{background:var(--brown);padding:32px 24px 36px;text-align:center}
+.eyebrow{font-family:Arial,sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.hero-title{font-family:Georgia,serif;font-size:28px;font-weight:700;color:#fff;line-height:1.3;margin-bottom:10px}
+.hero-sub{font-family:Arial,sans-serif;font-size:13px;color:var(--gold-light);line-height:1.7;max-width:400px;margin:0 auto 24px}
+
+/* Buttons */
+.btn-gold{background:var(--gold);color:var(--brown);font-family:Arial,sans-serif;font-size:13px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:13px 30px;border-radius:3px;border:none;cursor:pointer;transition:background .15s;display:inline-block}
+.btn-gold:hover{background:#b8924f}
+.btn-gold-full{width:100%}
+.btn-back{padding:11px 18px;background:var(--white);border:1.5px solid var(--border);border-radius:3px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;color:var(--muted)}
+.btn-back:hover{background:var(--rose)}
+
+/* Progress */
+.progress-wrap{background:var(--gold-light);height:5px}
+.progress-fill{height:5px;background:var(--gold);transition:width .35s}
+
+/* Step header */
+.step-header{background:var(--rose);padding:14px 20px;border-bottom:1px solid var(--border)}
+.step-eye{font-family:Arial,sans-serif;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:3px}
+.step-title{font-family:Georgia,serif;font-size:19px;font-weight:700;color:var(--brown)}
+
+/* Card */
+.card{background:var(--white);border:1px solid var(--border);border-radius:4px;padding:18px 20px;margin:16px 20px}
+
+/* Fields */
+.field{margin-bottom:14px}
+.field label{display:block;font-family:Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+.field select,.field input,.field textarea{width:100%;font-family:Arial,sans-serif;font-size:14px;padding:9px 11px;border-radius:3px;border:1px solid var(--border);background:var(--white);color:var(--text);outline:none;transition:border-color .15s}
+.field select:focus,.field input:focus,.field textarea:focus{border-color:var(--gold)}
+.field textarea{resize:vertical;min-height:80px;line-height:1.5}
+.req{color:#A0401A}
+
+/* Ratings */
+.rating-block{background:var(--rose);border:1px solid var(--border);border-radius:4px;padding:14px 16px;margin-bottom:10px}
+.rating-block.featured{border:2px solid var(--gold)}
+.rating-label{font-family:Arial,sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--brown);margin-bottom:3px}
+.rating-sub{font-family:Arial,sans-serif;font-size:12px;color:var(--muted);margin-bottom:8px;line-height:1.4}
+.stars-row{display:flex;gap:7px}
+.star{font-size:30px;cursor:pointer;color:var(--border);transition:color .1s;user-select:none;line-height:1}
+.star.lit{color:var(--gold)}
+
+/* Recommend buttons */
+.rec-row{display:flex;gap:8px;margin-top:6px}
+.rec-btn{flex:1;padding:10px 6px;border-radius:3px;border:1.5px solid var(--border);background:var(--white);color:var(--muted);font-family:Arial,sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;cursor:pointer;text-align:center;transition:all .15s}
+.rec-btn.sel{border-color:var(--brown);background:var(--brown);color:#fff}
+
+/* Nav row */
+.nav-row{display:flex;gap:10px;padding:4px 20px 20px}
+
+/* Skip */
+.skip-link{font-family:Arial,sans-serif;font-size:12px;color:var(--muted);text-align:center;cursor:pointer;text-decoration:underline;display:block;padding:4px 20px 16px}
+
+/* Notice bar */
+.notice-bar{background:var(--rose);border-top:1px solid var(--border);padding:10px 20px;font-family:Arial,sans-serif;font-size:12px;color:var(--muted);line-height:1.5;display:flex;gap:8px;align-items:flex-start}
+.notice-bar .ti{color:var(--gold);font-size:15px;flex-shrink:0;margin-top:1px}
+
+/* Error */
+.err-msg{font-family:Arial,sans-serif;font-size:12px;color:#A0401A;margin-top:6px;display:none}
+
+/* Success */
+.success-body{padding:36px 24px;text-align:center}
+.success-icon{font-size:52px;color:var(--gold);margin-bottom:12px}
+.success-title{font-family:Georgia,serif;font-size:24px;font-weight:700;color:#fff;margin-bottom:8px}
+.success-sub{font-family:Arial,sans-serif;font-size:13px;color:var(--gold-light);max-width:360px;margin:0 auto 24px;line-height:1.7}
+
+/* QR card */
+.qr-card{background:var(--white);border:1px solid var(--border);border-radius:4px;padding:14px 18px;margin:0 20px 20px;display:flex;gap:12px;align-items:center}
+.qr-icon{font-size:34px;color:var(--gold);flex-shrink:0}
+.qr-text{font-family:Arial,sans-serif;font-size:12px;color:var(--muted);line-height:1.5}
+.qr-text strong{color:var(--brown);font-weight:700}
+
+/* Login */
+.login-wrap{max-width:340px;margin:0 auto;padding:32px 20px}
+.login-title{font-family:Georgia,serif;font-size:22px;font-weight:700;color:var(--brown);text-align:center;margin-bottom:4px}
+.login-sub{font-family:Arial,sans-serif;font-size:12px;color:var(--muted);text-align:center;margin-bottom:20px}
+
+/* Admin */
+.admin-header{background:var(--brown);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10}
+.admin-header-title{font-family:Georgia,serif;font-size:16px;font-weight:700;color:#fff}
+.admin-eye{font-family:Arial,sans-serif;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:2px}
+.btn-signout{background:transparent;border:1px solid var(--gold);color:var(--gold);font-family:Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 13px;border-radius:3px;cursor:pointer}
+.btn-signout:hover{background:rgba(201,169,110,.15)}
+
+.stat-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;padding:16px 20px 0}
+.stat{background:var(--white);border:1px solid var(--border);border-radius:4px;padding:12px;text-align:center}
+.stat-n{font-family:Georgia,serif;font-size:26px;font-weight:700;color:var(--brown)}
+.stat-l{font-family:Arial,sans-serif;font-size:10px;color:var(--muted);margin-top:2px;text-transform:uppercase;letter-spacing:.06em}
+
+.tabs{display:flex;padding:14px 20px 0;border-bottom:1px solid var(--border);margin-top:14px;overflow-x:auto}
+.tab{padding:8px 12px;font-family:Arial,sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;cursor:pointer;color:var(--muted);background:none;border:none;border-bottom:3px solid transparent;margin-bottom:-1px;white-space:nowrap}
+.tab.active{color:var(--brown);border-bottom-color:var(--gold)}
+
+.filters{display:flex;gap:8px;padding:12px 20px;flex-wrap:wrap}
+.filters select{font-family:Arial,sans-serif;font-size:12px;padding:6px 9px;border-radius:3px;border:1px solid var(--border);background:var(--white);color:var(--text)}
+
+.rev-card{background:var(--white);border:1px solid var(--border);border-radius:4px;padding:15px 18px;margin:0 20px 10px}
+.rev-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px}
+.rev-name{font-family:Georgia,serif;font-size:15px;font-weight:700;color:var(--brown)}
+.rev-stars{color:var(--gold);font-size:14px}
+.rev-meta{font-family:Arial,sans-serif;font-size:11px;color:var(--muted);margin-bottom:8px}
+.tags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:8px}
+.tag{font-family:Arial,sans-serif;font-size:11px;padding:2px 9px;border-radius:99px;background:var(--rose);color:var(--brown-mid);border:1px solid var(--border)}
+.rev-quote{font-family:Georgia,serif;font-size:13px;color:var(--text);font-style:italic;line-height:1.6;margin-bottom:6px}
+.rev-improve{font-family:Arial,sans-serif;font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:8px}
+.sub-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 16px;margin:8px 0;padding:10px;background:var(--rose);border-radius:3px}
+.sub-row{display:flex;justify-content:space-between;align-items:center;padding:3px 0;border-bottom:1px solid var(--gold-light);font-family:Arial,sans-serif;font-size:11px;color:var(--muted)}
+.sub-row:last-child{border-bottom:none}
+.sub-stars{color:var(--gold);font-size:11px;letter-spacing:1px}
+.act-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;padding-top:10px;border-top:1px solid var(--border)}
+.act{padding:5px 13px;font-family:Arial,sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;border-radius:3px;cursor:pointer;border:1px solid var(--border);background:var(--white);color:var(--muted)}
+.act.app{background:#EAF3DE;color:#3B6D11;border-color:#639922}
+.act.rej{background:#FCEBEB;color:#A32D2D;border-color:#E24B4A}
+.act.goo{background:#E6F1FB;color:#185FA5;border-color:#378ADD}
+.act.web{background:#FAEEDA;color:#854F0B;border-color:#EF9F27}
+.badge{font-family:Arial,sans-serif;font-size:10px;padding:3px 9px;border-radius:99px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}
+.b-pend{background:#FAEEDA;color:#854F0B}
+.b-appr{background:#EAF3DE;color:#3B6D11}
+.b-rej{background:#FCEBEB;color:#A32D2D}
+.b-post{background:#E6F1FB;color:#185FA5}
+.empty{text-align:center;padding:32px;font-family:Arial,sans-serif;font-size:13px;color:var(--muted)}
+.admin-bottom{height:40px}
+
+/* Footer */
+.wc-footer{background:var(--brown);padding:16px 20px;text-align:center;font-family:Arial,sans-serif;font-size:11px;color:var(--gold);letter-spacing:.06em;text-transform:uppercase}
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- WELCOME -->
+<div id="v-welcome" class="view active">
+  <div class="wc-header">
+    <div><div class="logo-l1">The Women's Center</div><div class="logo-l2">Orlando · Est. 2001</div></div>
+  </div>
+  <div class="wc-hero">
+    <div class="eyebrow">Patient experience</div>
+    <div class="hero-title">How was your visit today?</div>
+    <div class="hero-sub">Your feedback helps us continue delivering exceptional women's health care across Central Florida. Takes about 2 minutes and is completely anonymous.</div>
+    <button class="btn-gold" onclick="gotoStep(1)">Share my experience</button>
+  </div>
+  <div class="notice-bar"><i class="ti ti-shield-check"></i><span>This form collects experience feedback only. No medical, clinical, or protected health information is requested or stored. Your identity is always optional.</span></div>
+  <div style="padding:16px 20px 4px;text-align:center">
+    <span class="skip-link" style="padding:0" onclick="showLogin()">Staff / medical director login →</span>
+  </div>
+  <div class="wc-footer">The Women's Center &nbsp;·&nbsp; 9 Locations Across Central Florida</div>
+</div>
+
+<!-- STEP 1 -->
+<div id="v-step1" class="view">
+  <div class="wc-header"><div><div class="logo-l1">The Women's Center</div><div class="logo-l2">Guest experience review</div></div></div>
+  <div class="progress-wrap"><div class="progress-fill" style="width:25%"></div></div>
+  <div class="step-header"><div class="step-eye">Step 1 of 4</div><div class="step-title">About your visit</div></div>
+  <div class="card">
+    <div class="field">
+      <label>Location visited <span class="req">*</span></label>
+      <select id="s1-loc">
+        <option value="">Select a location...</option>
+        <option>Commerce Park, Altamonte Springs</option>
+        <option>Main Street, Altamonte Springs</option>
+        <option>Celebration</option>
+        <option>Hunter's Creek, Orlando</option>
+        <option>Oviedo</option>
+        <option>St. Cloud</option>
+        <option>Downtown Orlando (Lucerne Terrace)</option>
+        <option>Winter Park</option>
+        <option>Lake Nona (Narcoossee Rd.)</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Provider you saw <span class="req">*</span></label>
+      <select id="s1-prov">
+        <option value="">Select a provider...</option>
+        <optgroup label="OB-GYN Physicians">
+          <option>Dr. Douglas Gearity</option><option>Dr. Vartika Bhardwaj</option><option>Dr. Jeffrey Feld</option>
+          <option>Dr. Sherra Forde-Kelly</option><option>Dr. Larissa Guerrero</option><option>Dr. Yasmine Kareem</option>
+          <option>Dr. Rocio Figueroa-Gonzalez</option><option>Dr. Yesenia Moya</option><option>Dr. Temitope Oshodi</option>
+          <option>Dr. Priya Patel</option><option>Dr. Carlos Rodriguez</option><option>Dr. Isalis Sanchez-Pena</option>
+          <option>Dr. Grace Sarvotham</option><option>Dr. Lillian Vargas</option><option>Dr. Leigh C. White</option>
+          <option>Dr. Ying Lei</option>
+        </optgroup>
+        <optgroup label="Nurse Practitioners">
+          <option>Kaitlyn Zipoli Agudelo, CNM, ARNP</option><option>Tracy Dave, DNP, APRN, FNP-BC</option>
+          <option>Ivonne Ernest, MSN, APRN, FNP-BC</option><option>Sharlene Liburd, MSN, APRN, FNP-BC</option>
+          <option>Jasmine North, MSN, APRN-C</option><option>Bijal Patel, APRN-FNP</option>
+          <option>Christina Torres, MSN, APRN, FNP-BC</option><option>Nicole Hoffman, APRN</option>
+        </optgroup>
+        <optgroup label="Physician Assistants">
+          <option>Hannah Hickman, PA-C</option><option>Yunqin "Debra" Gow, PA</option><option>Kellybeth Ramirez, PA-C</option>
+        </optgroup>
+        <option value="not-sure">Not sure / prefer not to say</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Type of visit <span class="req">*</span></label>
+      <select id="s1-type">
+        <option value="">Select...</option>
+        <option>Annual wellness exam</option><option>Mammogram</option><option>OB / prenatal visit</option>
+        <option>Follow-up appointment</option><option>New patient visit</option><option>Lab / imaging</option>
+        <option>Procedure</option><option>Prefer not to say</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>When was your visit?</label>
+      <select id="s1-when">
+        <option value="">Select...</option>
+        <option>Today</option><option>Yesterday</option><option>Within the past week</option><option>Within the past month</option>
+      </select>
+    </div>
+    <div class="err-msg" id="err1">Please select a location, provider, and visit type to continue.</div>
+  </div>
+  <div class="nav-row">
+    <button class="btn-back" onclick="gotoStep(0)">← Back</button>
+    <button class="btn-gold" style="flex:1" onclick="next1()">Continue →</button>
+  </div>
+</div>
+
+<!-- STEP 2 -->
+<div id="v-step2" class="view">
+  <div class="wc-header"><div><div class="logo-l1">The Women's Center</div><div class="logo-l2">Guest experience review</div></div></div>
+  <div class="progress-wrap"><div class="progress-fill" style="width:50%"></div></div>
+  <div class="step-header"><div class="step-eye">Step 2 of 4</div><div class="step-title">Rate your experience</div></div>
+  <div style="padding:16px 20px 4px">
+    <div class="rating-block"><div class="rating-label">Arrival &amp; check-in</div><div class="rating-sub">Finding the office, parking, and front desk check-in process</div><div class="stars-row" id="stars-checkin"></div></div>
+    <div class="rating-block"><div class="rating-label">Lobby wait time</div><div class="rating-sub">Time spent waiting before being called back</div><div class="stars-row" id="stars-lobbywait"></div></div>
+    <div class="rating-block"><div class="rating-label">Wait time to see provider</div><div class="rating-sub">Time from being called back to seeing your provider</div><div class="stars-row" id="stars-provwait"></div></div>
+    <div class="rating-block"><div class="rating-label">Staff friendliness</div><div class="rating-sub">How welcoming, kind, and attentive the staff were</div><div class="stars-row" id="stars-staff"></div></div>
+    <div class="rating-block"><div class="rating-label">Cleanliness &amp; comfort</div><div class="rating-sub">Office and exam room cleanliness, comfort, and environment</div><div class="stars-row" id="stars-clean"></div></div>
+    <div class="rating-block"><div class="rating-label">Care from your provider</div><div class="rating-sub">How heard, informed, and cared for you felt</div><div class="stars-row" id="stars-care"></div></div>
+    <div class="rating-block"><div class="rating-label">Check-out &amp; billing</div><div class="rating-sub">Ease of checkout, payment process, and follow-up instructions</div><div class="stars-row" id="stars-checkout"></div></div>
+    <div class="rating-block featured"><div class="rating-label">Overall experience <span class="req">*</span></div><div class="rating-sub">Your overall impression of today's visit</div><div class="stars-row" id="stars-overall"></div></div>
+    <div class="err-msg" id="err2" style="margin-bottom:10px">Please rate your overall experience to continue.</div>
+  </div>
+  <div class="nav-row">
+    <button class="btn-back" onclick="gotoStep(1)">← Back</button>
+    <button class="btn-gold" style="flex:1" onclick="next2()">Continue →</button>
+  </div>
+</div>
+
+<!-- STEP 3 -->
+<div id="v-step3" class="view">
+  <div class="wc-header"><div><div class="logo-l1">The Women's Center</div><div class="logo-l2">Guest experience review</div></div></div>
+  <div class="progress-wrap"><div class="progress-fill" style="width:75%"></div></div>
+  <div class="step-header"><div class="step-eye">Step 3 of 4</div><div class="step-title">In your own words</div></div>
+  <div class="card">
+    <div class="field">
+      <label>What went well during your visit?</label>
+      <textarea id="s3-good" placeholder="e.g. The staff made me feel comfortable, the wait was short..."></textarea>
+    </div>
+    <div class="field">
+      <label>What could we improve?</label>
+      <textarea id="s3-improve" placeholder="e.g. The check-in process took a while..."></textarea>
+    </div>
+    <div class="field">
+      <label>Would you recommend The Women's Center? <span class="req">*</span></label>
+      <div class="rec-row">
+        <button class="rec-btn" id="rec-yes" onclick="setRec('yes')">Yes, definitely</button>
+        <button class="rec-btn" id="rec-maybe" onclick="setRec('maybe')">Maybe</button>
+        <button class="rec-btn" id="rec-no" onclick="setRec('no')">No</button>
+      </div>
+    </div>
+    <div class="err-msg" id="err3">Please let us know if you'd recommend us.</div>
+  </div>
+  <div class="nav-row">
+    <button class="btn-back" onclick="gotoStep(2)">← Back</button>
+    <button class="btn-gold" style="flex:1" onclick="next3()">Continue →</button>
+  </div>
+</div>
+
+<!-- STEP 4 -->
+<div id="v-step4" class="view">
+  <div class="wc-header"><div><div class="logo-l1">The Women's Center</div><div class="logo-l2">Guest experience review</div></div></div>
+  <div class="progress-wrap"><div class="progress-fill" style="width:92%"></div></div>
+  <div class="step-header"><div class="step-eye">Step 4 of 4 – Optional</div><div class="step-title">One last thing</div></div>
+  <div class="card">
+    <div class="field">
+      <label>First name (optional)</label>
+      <input type="text" id="s4-name" placeholder="Leave blank to remain anonymous" maxlength="40">
+    </div>
+    <div class="field">
+      <label>How did you hear about us?</label>
+      <select id="s4-hear">
+        <option value="">Select...</option>
+        <option>Google search</option><option>Google Maps</option><option>Friend or family referral</option>
+        <option>Insurance directory</option><option>Social media</option><option>Already a patient</option><option>Other</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Is this your first visit?</label>
+      <select id="s4-first">
+        <option value="">Select...</option>
+        <option>Yes, first visit</option><option>No, I've been before</option>
+      </select>
+    </div>
+  </div>
+  <div class="notice-bar"><i class="ti ti-shield-check"></i><span>No medical or health information is collected. This is an experience-based review only. Your identity is always optional.</span></div>
+  <div class="nav-row" style="margin-top:12px">
+    <button class="btn-back" onclick="gotoStep(3)">← Back</button>
+    <button class="btn-gold" style="flex:1" onclick="submitReview()">Submit review</button>
+  </div>
+  <span class="skip-link" onclick="submitReview()">Skip and submit anonymously</span>
+</div>
+
+<!-- SUCCESS -->
+<div id="v-success" class="view">
+  <div class="wc-header"><div><div class="logo-l1">The Women's Center</div><div class="logo-l2">Guest experience review</div></div></div>
+  <div class="wc-hero" style="padding:40px 24px">
+    <div class="success-icon"><i class="ti ti-circle-check"></i></div>
+    <div class="eyebrow">Thank you!</div>
+    <div class="hero-title" style="font-size:24px">Your review has been submitted</div>
+    <div class="hero-sub">Our medical director will review your feedback before publishing. Your experience helps us improve care for every patient at all 9 of our locations.</div>
+    <button class="btn-gold" onclick="restart()">Submit another review</button>
+  </div>
+  <div class="qr-card">
+    <div class="qr-icon"><i class="ti ti-qrcode"></i></div>
+    <div class="qr-text"><strong>Know someone who visited us?</strong><br>Share this review link or point them to the QR code at the front desk. Every review helps us grow and improve.</div>
+  </div>
+  <div style="padding:0 20px 20px;text-align:center">
+    <span class="skip-link" style="padding:0" onclick="showLogin()">Medical director login →</span>
+  </div>
+  <div class="wc-footer">The Women's Center &nbsp;·&nbsp; wcorlando.com</div>
+</div>
+
+<!-- LOGIN -->
+<div id="v-login" class="view">
+  <div class="wc-header"><div><div class="logo-l1">The Women's Center</div><div class="logo-l2">Medical director portal</div></div></div>
+  <div class="login-wrap">
+    <div class="login-title">Director login</div>
+    <div class="login-sub">Access the review dashboard to approve and publish patient feedback</div>
+    <div class="field"><label>Username</label><input type="text" id="lu" placeholder="director"></div>
+    <div class="field"><label>Password</label><input type="password" id="lp" placeholder="••••••••"></div>
+    <div class="err-msg" id="lerr">Incorrect credentials. Try: director / admin123</div>
+    <div style="margin-top:14px"><button class="btn-gold btn-gold-full" onclick="tryLogin()">Sign in</button></div>
+    <div style="text-align:center;margin-top:14px">
+      <span class="skip-link" style="padding:0" onclick="gotoStep(0)">← Back to review form</span>
+    </div>
+  </div>
+</div>
+
+<!-- ADMIN DASHBOARD -->
+<div id="v-admin" class="view">
+  <div class="admin-header">
+    <div><div class="admin-eye">Medical director</div><div class="admin-header-title">Review dashboard</div></div>
+    <button class="btn-signout" onclick="gotoStep(0)">Sign out</button>
+  </div>
+  <div class="stat-grid" id="stat-grid"></div>
+  <div class="tabs">
+    <button class="tab active" onclick="setTab('all',this)">All</button>
+    <button class="tab" onclick="setTab('pending',this)">Pending</button>
+    <button class="tab" onclick="setTab('approved',this)">Approved</button>
+    <button class="tab" onclick="setTab('rejected',this)">Rejected</button>
+    <button class="tab" onclick="setTab('posted',this)">Posted</button>
+  </div>
+  <div class="filters">
+    <select id="fl" onchange="renderList()">
+      <option value="">All locations</option>
+      <option>Commerce Park, Altamonte Springs</option><option>Main Street, Altamonte Springs</option>
+      <option>Celebration</option><option>Hunter's Creek, Orlando</option><option>Oviedo</option>
+      <option>St. Cloud</option><option>Downtown Orlando (Lucerne Terrace)</option>
+      <option>Winter Park</option><option>Lake Nona (Narcoossee Rd.)</option>
+    </select>
+    <select id="fp" onchange="renderList()">
+      <option value="">All providers</option>
+      <option>Dr. Douglas Gearity</option><option>Dr. Vartika Bhardwaj</option><option>Dr. Jeffrey Feld</option>
+      <option>Dr. Sherra Forde-Kelly</option><option>Dr. Larissa Guerrero</option><option>Dr. Yasmine Kareem</option>
+      <option>Dr. Rocio Figueroa-Gonzalez</option><option>Dr. Yesenia Moya</option><option>Dr. Temitope Oshodi</option>
+      <option>Dr. Priya Patel</option><option>Dr. Carlos Rodriguez</option><option>Dr. Isalis Sanchez-Pena</option>
+      <option>Dr. Grace Sarvotham</option><option>Dr. Lillian Vargas</option><option>Dr. Leigh C. White</option><option>Dr. Ying Lei</option>
+    </select>
+    <select id="fr" onchange="renderList()">
+      <option value="">Any rating</option>
+      <option value="5">5 stars</option><option value="4">4 stars</option><option value="3">3 stars</option>
+      <option value="2">2 stars</option><option value="1">1 star</option>
+    </select>
+  </div>
+  <div id="rev-list"></div>
+  <div class="admin-bottom"></div>
+</div>
+
+</div><!-- end .app -->
+
+<script>
+var state={loc:'',prov:'',type:'',when:'',ratings:{},rec:'',good:'',improve:'',name:'',hear:'',first:''};
+var tabFilter='all';
+var ratingIds=['checkin','lobbywait','provwait','staff','clean','care','checkout','overall'];
+var ratingLabels={checkin:'Check-in',lobbywait:'Lobby wait',provwait:'Provider wait',staff:'Staff',clean:'Cleanliness',care:'Provider care',checkout:'Check-out',overall:'Overall'};
+
+var reviews=[
+  {id:1,name:'Maria G.',loc:"Hunter's Creek, Orlando",prov:'Dr. Priya Patel',type:'Annual wellness exam',when:'Today',ratings:{checkin:5,lobbywait:4,provwait:4,staff:5,clean:5,care:5,checkout:5,overall:5},rec:'yes',good:'Dr. Patel was so patient and thorough. The staff were warm and welcoming from the moment I arrived.',improve:'',hear:'Google search',first:"No, I've been before",status:'pending',date:'May 11, 2026'},
+  {id:2,name:'Anonymous',loc:'St. Cloud',prov:'Dr. Douglas Gearity',type:'Follow-up appointment',when:'Yesterday',ratings:{checkin:4,lobbywait:3,provwait:3,staff:4,clean:5,care:5,checkout:4,overall:4},rec:'yes',good:'Short wait and the doctor answered all my questions thoroughly.',improve:'Parking can be tricky to find.',hear:'',first:"No, I've been before",status:'pending',date:'May 10, 2026'},
+  {id:3,name:'Renae O.',loc:'Winter Park',prov:'Dr. Isalis Sanchez-Pena',type:'New patient visit',when:'Within the past week',ratings:{checkin:5,lobbywait:5,provwait:5,staff:5,clean:5,care:5,checkout:5,overall:5},rec:'yes',good:'First visit and I felt completely at ease. Highly professional team throughout.',improve:'',hear:'Friend or family referral',first:'Yes, first visit',status:'approved',date:'May 9, 2026'},
+  {id:4,name:'Carmen V.',loc:'Oviedo',prov:'Dr. Yasmine Kareem',type:'Annual wellness exam',when:'Within the past week',ratings:{checkin:3,lobbywait:2,provwait:2,staff:4,clean:4,care:4,checkout:3,overall:3},rec:'maybe',good:'The care from the doctor was good once I was seen.',improve:'Wait time was over 45 minutes past my appointment time.',hear:'Insurance directory',first:"No, I've been before",status:'pending',date:'May 8, 2026'},
+  {id:5,name:'Lisette M.',loc:'Celebration',prov:'Dr. Priya Patel',type:'OB / prenatal visit',when:'Within the past week',ratings:{checkin:5,lobbywait:5,provwait:5,staff:5,clean:5,care:5,checkout:5,overall:5},rec:'yes',good:'Best OB/GYN office in Central Florida. Everyone is kind and professional.',improve:'',hear:'Google Maps',first:"No, I've been before",status:'posted',date:'May 7, 2026'},
+];
+var nextId=6;
+
+function showView(id){document.querySelectorAll('.view').forEach(function(v){v.classList.remove('active')});document.getElementById(id).classList.add('active');window.scrollTo(0,0)}
+function gotoStep(n){var m={0:'v-welcome',1:'v-step1',2:'v-step2',3:'v-step3',4:'v-step4'};if(m[n])showView(m[n])}
+function showLogin(){showView('v-login')}
+
+function buildStars(){
+  ratingIds.forEach(function(id){
+    var row=document.getElementById('stars-'+id);if(!row)return;row.innerHTML='';
+    for(var i=1;i<=5;i++){
+      var s=document.createElement('span');
+      s.className='star';s.textContent='★';
+      (function(rid,rv){s.onclick=function(){setRating(rid,rv)}})(id,i);
+      row.appendChild(s);
+    }
+  });
+}
+
+function setRating(id,val){
+  state.ratings[id]=val;
+  var row=document.getElementById('stars-'+id);if(!row)return;
+  var stars=row.querySelectorAll('.star');
+  stars.forEach(function(s,i){s.classList.toggle('lit',i<val)});
+}
+
+function setRec(v){
+  state.rec=v;
+  document.querySelectorAll('.rec-btn').forEach(function(b){b.classList.remove('sel')});
+  document.getElementById('rec-'+v).classList.add('sel');
+}
+
+function next1(){
+  var l=document.getElementById('s1-loc').value,p=document.getElementById('s1-prov').value,t=document.getElementById('s1-type').value;
+  if(!l||!p||!t){document.getElementById('err1').style.display='block';return}
+  document.getElementById('err1').style.display='none';
+  state.loc=l;state.prov=p;state.type=t;state.when=document.getElementById('s1-when').value;
+  gotoStep(2);
+}
+function next2(){
+  if(!state.ratings.overall){document.getElementById('err2').style.display='block';return}
+  document.getElementById('err2').style.display='none';gotoStep(3);
+}
+function next3(){
+  state.good=document.getElementById('s3-good').value.trim();
+  state.improve=document.getElementById('s3-improve').value.trim();
+  if(!state.rec){document.getElementById('err3').style.display='block';return}
+  document.getElementById('err3').style.display='none';gotoStep(4);
+}
+function submitReview(){
+  state.name=document.getElementById('s4-name').value.trim()||'Anonymous';
+  state.hear=document.getElementById('s4-hear').value;
+  state.first=document.getElementById('s4-first').value;
+  var r=JSON.parse(JSON.stringify(state));
+  r.id=nextId++;r.status='pending';r.date=new Date().toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
+  reviews.unshift(r);
+  showView('v-success');
+}
+function restart(){
+  state={loc:'',prov:'',type:'',when:'',ratings:{},rec:'',good:'',improve:'',name:'',hear:'',first:''};
+  document.querySelectorAll('.star').forEach(function(s){s.classList.remove('lit')});
+  document.querySelectorAll('.rec-btn').forEach(function(b){b.classList.remove('sel')});
+  ['s1-loc','s1-prov','s1-type','s1-when','s3-good','s3-improve','s4-name','s4-hear','s4-first'].forEach(function(id){var el=document.getElementById(id);if(el)el.value=''});
+  showView('v-welcome');
+}
+
+function tryLogin(){
+  var u=document.getElementById('lu').value.trim(),p=document.getElementById('lp').value.trim();
+  if(u==='director'&&p==='admin123'){
+    document.getElementById('lerr').style.display='none';
+    tabFilter='all';renderAdmin();showView('v-admin');
+  } else {document.getElementById('lerr').style.display='block'}
+}
+
+function setTab(t,el){
+  tabFilter=t;
+  document.querySelectorAll('.tab').forEach(function(b){b.classList.remove('active')});
+  el.classList.add('active');renderList();
+}
+
+function avg(arr){return arr.length?Math.round(arr.reduce(function(a,b){return a+b},0)/arr.length*10)/10:0}
+function starsHtml(n){var s='';for(var i=1;i<=5;i++)s+=(i<=(n||0)?'★':'☆');return s}
+function badgeHtml(st){var m={pending:['b-pend','Pending'],approved:['b-appr','Approved'],rejected:['b-rej','Rejected'],posted:['b-post','Posted']};var b=m[st]||['b-pend',st];return'<span class="badge '+b[0]+'">'+b[1]+'</span>'}
+
+function renderAdmin(){renderStats();renderList()}
+
+function renderStats(){
+  var a=avg(reviews.filter(function(r){return r.status!=='rejected'}).map(function(r){return r.ratings.overall||0}));
+  document.getElementById('stat-grid').innerHTML=[
+    {n:reviews.length,l:'Total reviews'},
+    {n:reviews.filter(function(r){return r.status==='pending'}).length,l:'Pending'},
+    {n:reviews.filter(function(r){return r.status==='approved'||r.status==='posted'}).length,l:'Approved'},
+    {n:a,l:'Avg. rating'}
+  ].map(function(s){return'<div class="stat"><div class="stat-n">'+s.n+'</div><div class="stat-l">'+s.l+'</div></div>'}).join('');
+}
+
+function renderList(){
+  var lf=document.getElementById('fl').value,pf=document.getElementById('fp').value,rf=document.getElementById('fr').value;
+  var list=reviews.filter(function(r){
+    if(tabFilter!=='all'&&r.status!==tabFilter)return false;
+    if(lf&&r.loc!==lf)return false;
+    if(pf&&r.prov!==pf)return false;
+    if(rf&&(r.ratings.overall||0)!==+rf)return false;
+    return true;
+  });
+  renderStats();
+  if(!list.length){document.getElementById('rev-list').innerHTML='<div class="empty">No reviews match these filters.</div>';return}
+  document.getElementById('rev-list').innerHTML=list.map(function(r){
+    var subIds=ratingIds.filter(function(id){return id!=='overall'});
+    var sub=subIds.map(function(id){return'<div class="sub-row"><span>'+ratingLabels[id]+'</span><span class="sub-stars">'+starsHtml(r.ratings[id]||0)+'</span></div>'}).join('');
+    var acts='';
+    if(r.status==='pending')acts='<button class="act app" onclick="setStatus('+r.id+',\'approved\')"><i class="ti ti-check"></i> Approve</button><button class="act rej" onclick="setStatus('+r.id+',\'rejected\')"><i class="ti ti-x"></i> Reject</button>';
+    if(r.status==='approved')acts='<button class="act goo" onclick="postTo('+r.id+',\'google\')"><i class="ti ti-brand-google"></i> Post to Google</button><button class="act web" onclick="postTo('+r.id+',\'web\')"><i class="ti ti-world"></i> Post to website</button>';
+    if(r.status==='posted')acts='<span style="font-family:Arial,sans-serif;font-size:11px;color:var(--muted)"><i class="ti ti-circle-check"></i> Published online</span>';
+    if(r.status==='rejected')acts='<span style="font-family:Arial,sans-serif;font-size:11px;color:var(--muted)">Not published</span>';
+    return'<div class="rev-card" id="rc-'+r.id+'">'
+      +'<div class="rev-top"><div><div class="rev-name">'+r.name+'</div><div class="rev-stars">'+starsHtml(r.ratings.overall||0)+' <span style="font-family:Arial,sans-serif;font-size:11px;color:var(--muted)">'+(r.ratings.overall||'–')+'/5 overall</span></div></div>'+badgeHtml(r.status)+'</div>'
+      +'<div class="rev-meta">'+r.date+' &nbsp;·&nbsp; '+r.loc+' &nbsp;·&nbsp; '+(r.type||'')+'</div>'
+      +'<div class="tags"><span class="tag">'+r.prov+'</span><span class="tag">Recommend: '+(r.rec||'–')+'</span>'+(r.hear?'<span class="tag">Via: '+r.hear+'</span>':'')+(r.first?'<span class="tag">'+r.first+'</span>':'')+'</div>'
+      +(r.good?'<div class="rev-quote">"'+r.good+'"</div>':'')
+      +(r.improve?'<div class="rev-improve"><i class="ti ti-message" style="font-size:12px"></i> Improve: "'+r.improve+'"</div>':'')
+      +'<div class="sub-grid">'+sub+'</div>'
+      +'<div class="act-row">'+acts+'</div>'
+      +'</div>';
+  }).join('');
+}
+
+function setStatus(id,st){var r=reviews.find(function(x){return x.id===id});if(r)r.status=st;renderList()}
+function postTo(id,dest){
+  var r=reviews.find(function(x){return x.id===id});if(!r)return;
+  var txt=r.good||'Great experience at The Women\'s Center.';
+  alert((dest==='google'?'Copy to Google Business Profile:\n\n':'Copy to website testimonials:\n\n')+'"'+txt+'"');
+  r.status='posted';renderList();
+}
+
+buildStars();
+</script>
+</body>
+</html>
