@@ -140,11 +140,12 @@ html,body{background:#1E1410;font-family:Georgia,serif;color:#3A2818;height:100%
 .sub-row:last-child{border-bottom:none}
 .sub-stars{color:var(--gold);font-size:11px;letter-spacing:1px}
 .act-row{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:10px;padding-top:10px;border-top:1px solid var(--border)}
-.act{padding:5px 12px;font-family:Arial,sans-serif;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;border-radius:99px;cursor:pointer;border:1.5px solid var(--border);background:var(--white);color:var(--muted);transition:all .15s}
+.act{padding:5px 12px;font-family:Arial,sans-serif;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;border-radius:99px;cursor:pointer;border:1.5px solid var(--border);background:var(--white);color:var(--muted);transition:all .15s;white-space:nowrap;line-height:1.2;display:inline-flex;align-items:center;gap:3px}
 .act.app{background:#EAF3DE;color:#3B6D11;border-color:#639922}
 .act.rej{background:#FCEBEB;color:#A32D2D;border-color:#E24B4A}
 .act.goo{background:#E6F1FB;color:#185FA5;border-color:#378ADD}
 .act.web{background:#FAEEDA;color:#854F0B;border-color:#EF9F27}
+.act.del{background:#FDF0F3;color:#A32D2D;border-color:var(--border)}
 .badge{font-family:Arial,sans-serif;font-size:10px;padding:3px 9px;border-radius:99px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}
 .b-pend{background:#FAEEDA;color:#854F0B}
 .b-appr{background:#EAF3DE;color:#3B6D11}
@@ -524,11 +525,12 @@ function renderList(){
   document.getElementById('rev-list').innerHTML=list.map(function(r){
     var subIds=ratingIds.filter(function(id){return id!=='overall'});
     var sub=subIds.map(function(id){return'<div class="sub-row"><span>'+ratingLabels[id]+'</span><span class="sub-stars">'+starsHtml(r.ratings[id]||0)+'</span></div>'}).join('');
+    var del='<button class="act del" onclick="deleteReview('+r.id+')"><i class="ti ti-trash"></i> Delete</button>';
     var acts='';
-    if(r.status==='pending')acts='<button class="act app" onclick="setStatus('+r.id+',\'approved\')"><i class="ti ti-check"></i> Approve</button><button class="act rej" onclick="setStatus('+r.id+',\'rejected\')"><i class="ti ti-x"></i> Reject</button>';
-    if(r.status==='approved')acts='<button class="act goo" onclick="postTo('+r.id+',\'google\')"><i class="ti ti-brand-google"></i> Post to Google</button><button class="act web" onclick="postTo('+r.id+',\'web\')"><i class="ti ti-world"></i> Post to website</button>';
-    if(r.status==='posted')acts='<span style="font-family:Arial,sans-serif;font-size:11px;color:var(--muted)"><i class="ti ti-circle-check"></i> Published online</span>';
-    if(r.status==='rejected')acts='<span style="font-family:Arial,sans-serif;font-size:11px;color:var(--muted)">Not published</span>';
+    if(r.status==='pending')acts='<button class="act app" onclick="setStatus('+r.id+',\'approved\')"><i class="ti ti-check"></i> Approve</button><button class="act rej" onclick="setStatus('+r.id+',\'rejected\')"><i class="ti ti-x"></i> Reject</button>'+del;
+    if(r.status==='approved')acts='<button class="act goo" onclick="postTo('+r.id+',\'google\')"><i class="ti ti-brand-google"></i> Post to Google</button><button class="act web" onclick="postTo('+r.id+',\'web\')"><i class="ti ti-world"></i> Post to website</button>'+del;
+    if(r.status==='posted')acts='<span style="font-family:Arial,sans-serif;font-size:11px;color:var(--muted)"><i class="ti ti-circle-check"></i> Published online</span>'+del;
+    if(r.status==='rejected')acts='<span style="font-family:Arial,sans-serif;font-size:11px;color:var(--muted)">Not published</span>'+del;
     return'<div class="rev-card" id="rc-'+r.id+'">'
       +'<div class="rev-top"><div><div class="rev-name">'+r.name+'</div><div class="rev-stars">'+starsHtml(r.ratings.overall||0)+' <span style="font-family:Arial,sans-serif;font-size:11px;color:var(--muted)">'+(r.ratings.overall||'—')+'/5 overall</span></div></div>'+badgeHtml(r.status)+'</div>'
       +'<div class="rev-meta">'+r.date+' &nbsp;·&nbsp; '+r.loc+' &nbsp;·&nbsp; '+(r.type||'')+'</div>'
@@ -542,6 +544,7 @@ function renderList(){
 }
 
 function setStatus(id,st){var r=reviews.find(function(x){return x.id===id});if(r)r.status=st;renderList()}
+function deleteReview(id){reviews=reviews.filter(function(x){return x.id!==id});renderList()}
 function postTo(id,dest){
   var r=reviews.find(function(x){return x.id===id});if(!r)return;
   var txt=r.good||'Great experience at The Women\'s Center.';
