@@ -295,8 +295,9 @@ html,body{background:#FDF8F2;font-family:Georgia,serif;color:#2C1A0E;min-height:
   <div class="step-header"><div class="step-eye">Step 4 of 4 – Optional</div><div class="step-title">One last thing</div></div>
   <div class="card">
     <div class="field">
-      <label>First name (optional)</label>
-      <input type="text" id="s4-name" placeholder="Leave blank to remain anonymous" maxlength="40">
+      <label>Your name <span class="req">*</span></label>
+      <input type="text" id="s4-name" placeholder="Enter your first name" maxlength="40">
+      <div class="err-msg" id="err4">Please enter your name to submit.</div>
     </div>
     <div class="field">
       <label>How did you hear about us?</label>
@@ -319,7 +320,6 @@ html,body{background:#FDF8F2;font-family:Georgia,serif;color:#2C1A0E;min-height:
     <button class="btn-back" onclick="gotoStep(3)">← Back</button>
     <button class="btn-gold" style="flex:1" onclick="submitReview()">Submit review</button>
   </div>
-  <span class="skip-link" onclick="submitReview()">Skip and submit anonymously</span>
 </div>
 
 <!-- SUCCESS -->
@@ -462,7 +462,10 @@ function next3(){
   document.getElementById('err3').style.display='none';gotoStep(4);
 }
 function submitReview(){
-  state.name=document.getElementById('s4-name').value.trim()||'Anonymous';
+  var n=document.getElementById('s4-name').value.trim();
+  if(!n){document.getElementById('err4').style.display='block';return}
+  document.getElementById('err4').style.display='none';
+  state.name=n;
   state.hear=document.getElementById('s4-hear').value;
   state.first=document.getElementById('s4-first').value;
   var r=JSON.parse(JSON.stringify(state));
