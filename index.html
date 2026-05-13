@@ -762,7 +762,7 @@ var nextId = 6;
 function showView(id) {
   document.querySelectorAll('.view').forEach(function(v) { v.classList.remove('active'); });
   document.getElementById(id).classList.add('active');
-  window.scrollTo(0, 0);
+  document.querySelector('.app').scrollTop = 0;
 }
 function gotoStep(n) {
   var m = {0:'v-welcome',1:'v-step1',2:'v-step2',3:'v-step3',4:'v-step4'};
