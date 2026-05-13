@@ -30,6 +30,12 @@ html,body{background:#1E1410;font-family:Georgia,serif;color:#3A2818;height:100%
 .logo-l1{font-family:'Cormorant Garamond',Georgia,serif;font-size:18px;font-weight:700;color:#fff;letter-spacing:.03em}
 .logo-l2{font-family:Arial,sans-serif;font-size:10px;color:var(--gold);letter-spacing:.16em;text-transform:uppercase;margin-top:2px;opacity:.9}
 
+/* Lang toggle */
+.lang-toggle{margin-left:auto;display:flex;align-items:center;background:rgba(255,255,255,.12);border:1px solid rgba(212,136,154,.45);border-radius:99px;padding:3px 4px;cursor:pointer;user-select:none;gap:1px;flex-shrink:0}
+.lang-opt{font-family:Arial,sans-serif;font-size:10px;font-weight:700;letter-spacing:.07em;padding:3px 8px;border-radius:99px;color:rgba(255,255,255,.55);transition:all .2s}
+.lang-opt.active{background:var(--gold);color:#fff;box-shadow:0 1px 6px rgba(212,136,154,.5)}
+.lang-sep{color:rgba(255,255,255,.3);font-size:10px;padding:0 1px}
+
 /* Hero */
 .wc-hero{background:linear-gradient(160deg,#3C2418 0%,#6E4838 50%,#5A3828 100%);padding:44px 28px 52px;text-align:center}
 .eyebrow{font-family:Arial,sans-serif;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;opacity:.9}
@@ -63,6 +69,9 @@ html,body{background:#1E1410;font-family:Georgia,serif;color:#3A2818;height:100%
 .field textarea{resize:vertical;min-height:80px;line-height:1.5}
 .req{color:#B84040}
 
+/* PHI note */
+.phi-note{font-family:Arial,sans-serif;font-size:11px;color:var(--muted);font-style:italic;background:var(--rose);border-radius:8px;padding:7px 10px;margin-bottom:6px;line-height:1.45}
+
 /* Ratings */
 .rating-block{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:14px 16px;margin-bottom:8px;box-shadow:0 2px 12px rgba(110,72,56,.06)}
 .rating-block.featured{box-shadow:0 4px 20px rgba(206,170,152,.30);outline:2px solid var(--gold);border-color:var(--gold)}
@@ -76,6 +85,11 @@ html,body{background:#1E1410;font-family:Georgia,serif;color:#3A2818;height:100%
 .rec-row{display:flex;gap:8px;margin-top:6px}
 .rec-btn{flex:1;padding:11px 6px;border-radius:99px;border:1.5px solid var(--border);background:var(--white);color:var(--muted);font-family:Arial,sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;cursor:pointer;text-align:center;transition:all .2s}
 .rec-btn.sel{border-color:var(--gold);background:linear-gradient(135deg,#D4889A,#8A5040);color:#fff;box-shadow:0 3px 12px rgba(212,136,154,.30)}
+
+/* Tap buttons */
+.tap-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.tap-btn{padding:8px 14px;border-radius:99px;border:1.5px solid var(--border);background:var(--white);color:var(--muted);font-family:Arial,sans-serif;font-size:12px;font-weight:700;cursor:pointer;transition:all .2s}
+.tap-btn.sel{border-color:var(--gold);background:linear-gradient(135deg,#D4889A,#8A5040);color:#fff;box-shadow:0 2px 8px rgba(212,136,154,.25)}
 
 /* Nav row */
 .nav-row{display:flex;gap:10px;padding:4px 20px 20px}
@@ -91,16 +105,15 @@ html,body{background:#1E1410;font-family:Georgia,serif;color:#3A2818;height:100%
 .err-msg{font-family:Arial,sans-serif;font-size:12px;color:#B84040;margin-top:6px;display:none}
 
 /* Success */
-.success-body{padding:36px 24px;text-align:center}
 .success-icon{font-size:52px;color:var(--gold);margin-bottom:12px}
-.success-title{font-family:Georgia,serif;font-size:24px;font-weight:700;color:#fff;margin-bottom:8px}
-.success-sub{font-family:Arial,sans-serif;font-size:13px;color:var(--gold-light);max-width:360px;margin:0 auto 24px;line-height:1.7}
 
-/* QR card */
+/* QR / Google card */
 .qr-card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:16px 18px;margin:0 20px 20px;display:flex;gap:12px;align-items:center;box-shadow:0 2px 16px rgba(110,72,56,.07)}
 .qr-icon{font-size:34px;color:var(--gold);flex-shrink:0}
 .qr-text{font-family:Arial,sans-serif;font-size:12px;color:var(--muted);line-height:1.5}
-.qr-text strong{color:var(--brown);font-weight:700}
+.qr-text strong{color:var(--brown);font-weight:700;display:block;margin-bottom:8px}
+.btn-google-review{display:inline-block;background:#4285F4;color:#fff;font-family:Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:8px 16px;border-radius:99px;border:none;cursor:pointer;text-decoration:none;transition:all .2s;box-shadow:0 2px 10px rgba(66,133,244,.35)}
+.btn-google-review:hover{background:#3574E2;box-shadow:0 4px 14px rgba(66,133,244,.5)}
 
 /* Login */
 .login-wrap{max-width:340px;margin:0 auto;padding:40px 24px}
@@ -135,6 +148,8 @@ html,body{background:#1E1410;font-family:Georgia,serif;color:#3A2818;height:100%
 .tag{font-family:Arial,sans-serif;font-size:11px;padding:2px 9px;border-radius:99px;background:var(--rose);color:var(--brown-mid);border:1px solid var(--border)}
 .rev-quote{font-family:Georgia,serif;font-size:13px;color:var(--text);font-style:italic;line-height:1.6;margin-bottom:6px}
 .rev-improve{font-family:Arial,sans-serif;font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:8px}
+.rev-translate{font-family:Arial,sans-serif;font-size:12px;color:var(--muted);font-style:italic;margin-top:4px;padding:4px 8px;background:#F8F8F8;border-radius:6px;border-left:2px solid var(--border)}
+.translate-label{font-weight:700;font-style:normal;margin-right:4px}
 .sub-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 16px;margin:8px 0;padding:12px;background:var(--rose);border-radius:12px}
 .sub-row{display:flex;justify-content:space-between;align-items:center;padding:3px 0;border-bottom:1px solid var(--gold-light);font-family:Arial,sans-serif;font-size:11px;color:var(--muted)}
 .sub-row:last-child{border-bottom:none}
@@ -146,11 +161,13 @@ html,body{background:#1E1410;font-family:Georgia,serif;color:#3A2818;height:100%
 .act.goo{background:#E6F1FB;color:#185FA5;border-color:#378ADD}
 .act.web{background:#FAEEDA;color:#854F0B;border-color:#EF9F27}
 .act.del{background:#FDF0F3;color:#A32D2D;border-color:var(--border)}
+.act.tr{background:#F0EEF8;color:#5B4A9C;border-color:#B0A0E0}
 .badge{font-family:Arial,sans-serif;font-size:10px;padding:3px 9px;border-radius:99px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}
 .b-pend{background:#FAEEDA;color:#854F0B}
 .b-appr{background:#EAF3DE;color:#3B6D11}
 .b-rej{background:#FCEBEB;color:#A32D2D}
 .b-post{background:#E6F1FB;color:#185FA5}
+.b-es{background:#EDE9F8;color:#5B4A9C}
 .empty{text-align:center;padding:32px;font-family:Arial,sans-serif;font-size:13px;color:var(--muted)}
 .admin-bottom{height:40px}
 
@@ -165,30 +182,45 @@ html,body{background:#1E1410;font-family:Georgia,serif;color:#3A2818;height:100%
 <div id="v-welcome" class="view active">
   <div class="wc-header">
     <div><div class="logo-l1">The Women's Center</div><div class="logo-l2">Orlando · Est. 2001</div></div>
+    <div class="lang-toggle" onclick="toggleLang()">
+      <span class="lang-opt active" data-lang="en">EN</span>
+      <span class="lang-sep">/</span>
+      <span class="lang-opt" data-lang="es">ES</span>
+    </div>
   </div>
   <div class="wc-hero">
-    <div class="eyebrow">Patient experience</div>
-    <div class="hero-title">How was your visit today?</div>
-    <div class="hero-sub">Your feedback helps us continue delivering exceptional women's health care across Central Florida. Takes about 2 minutes and is completely anonymous.</div>
-    <button class="btn-gold" onclick="gotoStep(1)">Share my experience</button>
+    <div class="eyebrow" data-key="eyebrow-welcome">Patient experience</div>
+    <div class="hero-title" data-key="hero-title">How was your visit today?</div>
+    <div class="hero-sub" data-key="hero-sub">Your feedback helps us continue delivering exceptional women's health care across Central Florida. Takes about 2 minutes and is completely anonymous.</div>
+    <button class="btn-gold" onclick="gotoStep(1)" data-key="btn-start">Share my experience</button>
   </div>
-  <div class="notice-bar"><i class="ti ti-shield-check"></i><span>This form collects experience feedback only. No medical, clinical, or protected health information is requested or stored. Your identity is always optional.</span></div>
+  <div class="notice-bar"><i class="ti ti-shield-check"></i><span data-key="notice-welcome">This form collects experience feedback only. No medical, clinical, or protected health information is requested or stored. Your identity is always optional.</span></div>
   <div style="padding:16px 20px 4px;text-align:center">
-    <span class="skip-link" style="padding:0" onclick="showLogin()">Staff / medical director login →</span>
+    <span class="skip-link" style="padding:0" onclick="showLogin()" data-key="login-link">Staff / medical director login →</span>
   </div>
   <div class="wc-footer">The Women's Center &nbsp;·&nbsp; 9 Locations Across Central Florida</div>
 </div>
 
 <!-- STEP 1 -->
 <div id="v-step1" class="view">
-  <div class="wc-header"><div><div class="logo-l1">The Women's Center</div><div class="logo-l2">Guest experience review</div></div></div>
+  <div class="wc-header">
+    <div><div class="logo-l1">The Women's Center</div><div class="logo-l2">Guest experience review</div></div>
+    <div class="lang-toggle" onclick="toggleLang()">
+      <span class="lang-opt" data-lang="en">EN</span>
+      <span class="lang-sep">/</span>
+      <span class="lang-opt" data-lang="es">ES</span>
+    </div>
+  </div>
   <div class="progress-wrap"><div class="progress-fill" style="width:25%"></div></div>
-  <div class="step-header"><div class="step-eye">Step 1 of 4</div><div class="step-title">About your visit</div></div>
+  <div class="step-header">
+    <div class="step-eye" data-key="step1-eye">Step 1 of 4</div>
+    <div class="step-title" data-key="step1-title">About your experience</div>
+  </div>
   <div class="card">
     <div class="field">
-      <label>Location visited <span class="req">*</span></label>
+      <label><span data-key="lbl-loc">Location visited</span> <span class="req">*</span></label>
       <select id="s1-loc">
-        <option value="">Select a location...</option>
+        <option value="" data-key="opt-select-loc">Select a location...</option>
         <option>Commerce Park, Altamonte Springs</option>
         <option>Main Street, Altamonte Springs</option>
         <option>Celebration</option>
@@ -201,9 +233,9 @@ html,body{background:#1E1410;font-family:Georgia,serif;color:#3A2818;height:100%
       </select>
     </div>
     <div class="field">
-      <label>Provider you saw <span class="req">*</span></label>
+      <label><span data-key="lbl-prov">Provider you saw</span> <span class="req">*</span></label>
       <select id="s1-prov">
-        <option value="">Select a provider...</option>
+        <option value="" data-key="opt-select-prov">Select a provider...</option>
         <optgroup label="OB-GYN Physicians">
           <option>Dr. Douglas Gearity</option><option>Dr. Vartika Bhardwaj</option><option>Dr. Jeffrey Feld</option>
           <option>Dr. Sherra Forde-Kelly</option><option>Dr. Larissa Guerrero</option><option>Dr. Yasmine Kareem</option>
@@ -225,122 +257,223 @@ html,body{background:#1E1410;font-family:Georgia,serif;color:#3A2818;height:100%
       </select>
     </div>
     <div class="field">
-      <label>When was your visit?</label>
+      <label data-key="lbl-when">When was your visit?</label>
       <select id="s1-when">
-        <option value="">Select...</option>
-        <option>Today</option><option>Yesterday</option><option>Within the past week</option><option>Within the past month</option>
+        <option value="" data-key="opt-select">Select...</option>
+        <option value="Today" data-key="opt-today">Today</option>
+        <option value="Yesterday" data-key="opt-yesterday">Yesterday</option>
+        <option value="Within the past week" data-key="opt-week">Within the past week</option>
+        <option value="Within the past month" data-key="opt-month">Within the past month</option>
       </select>
     </div>
-    <div class="err-msg" id="err1">Please select a location and provider to continue.</div>
+    <div class="err-msg" id="err1" data-key="err1">Please select a location and provider to continue.</div>
   </div>
   <div class="nav-row">
-    <button class="btn-back" onclick="gotoStep(0)">← Back</button>
-    <button class="btn-gold" style="flex:1" onclick="next1()">Continue →</button>
+    <button class="btn-back" onclick="gotoStep(0)" data-key="btn-back">← Back</button>
+    <button class="btn-gold" style="flex:1" onclick="next1()" data-key="btn-continue">Continue →</button>
   </div>
 </div>
 
 <!-- STEP 2 -->
 <div id="v-step2" class="view">
-  <div class="wc-header"><div><div class="logo-l1">The Women's Center</div><div class="logo-l2">Guest experience review</div></div></div>
+  <div class="wc-header">
+    <div><div class="logo-l1">The Women's Center</div><div class="logo-l2">Guest experience review</div></div>
+    <div class="lang-toggle" onclick="toggleLang()">
+      <span class="lang-opt" data-lang="en">EN</span>
+      <span class="lang-sep">/</span>
+      <span class="lang-opt" data-lang="es">ES</span>
+    </div>
+  </div>
   <div class="progress-wrap"><div class="progress-fill" style="width:50%"></div></div>
-  <div class="step-header"><div class="step-eye">Step 2 of 4</div><div class="step-title">Rate your experience</div></div>
+  <div class="step-header">
+    <div class="step-eye" data-key="step2-eye">Step 2 of 4</div>
+    <div class="step-title" data-key="step2-title">Rate your experience</div>
+  </div>
   <div style="padding:16px 20px 4px">
-    <div class="rating-block"><div class="rating-label">Arrival &amp; check-in</div><div class="rating-sub">Finding the office, parking, and front desk check-in process</div><div class="stars-row" id="stars-checkin"></div></div>
-    <div class="rating-block"><div class="rating-label">Lobby wait time</div><div class="rating-sub">Time spent waiting before being called back</div><div class="stars-row" id="stars-lobbywait"></div></div>
-    <div class="rating-block"><div class="rating-label">Wait time to see provider</div><div class="rating-sub">Time from being called back to seeing your provider</div><div class="stars-row" id="stars-provwait"></div></div>
-    <div class="rating-block"><div class="rating-label">Staff friendliness</div><div class="rating-sub">How welcoming, kind, and attentive the staff were</div><div class="stars-row" id="stars-staff"></div></div>
-    <div class="rating-block"><div class="rating-label">Cleanliness &amp; comfort</div><div class="rating-sub">Office and exam room cleanliness, comfort, and environment</div><div class="stars-row" id="stars-clean"></div></div>
-    <div class="rating-block"><div class="rating-label">Care from your provider</div><div class="rating-sub">How heard, informed, and cared for you felt</div><div class="stars-row" id="stars-care"></div></div>
-    <div class="rating-block"><div class="rating-label">Check-out &amp; billing</div><div class="rating-sub">Ease of checkout, payment process, and follow-up instructions</div><div class="stars-row" id="stars-checkout"></div></div>
-    <div class="rating-block featured"><div class="rating-label">Overall experience <span class="req">*</span></div><div class="rating-sub">Your overall impression of today's visit</div><div class="stars-row" id="stars-overall"></div></div>
-    <div class="err-msg" id="err2" style="margin-bottom:10px">Please rate your overall experience to continue.</div>
+    <div class="rating-block">
+      <div class="rating-label" data-key="rl-checkin">Arrival &amp; check-in</div>
+      <div class="rating-sub" data-key="rs-checkin">Finding the office, parking, and front desk check-in process</div>
+      <div class="stars-row" id="stars-checkin"></div>
+    </div>
+    <div class="rating-block">
+      <div class="rating-label" data-key="rl-lobbywait">Lobby wait time</div>
+      <div class="rating-sub" data-key="rs-lobbywait">Time spent waiting before being called back</div>
+      <div class="stars-row" id="stars-lobbywait"></div>
+    </div>
+    <div class="rating-block">
+      <div class="rating-label" data-key="rl-provwait">Wait time to see provider</div>
+      <div class="rating-sub" data-key="rs-provwait">Time from being called back to seeing your provider</div>
+      <div class="stars-row" id="stars-provwait"></div>
+    </div>
+    <div class="rating-block">
+      <div class="rating-label" data-key="rl-staff">Staff friendliness</div>
+      <div class="rating-sub" data-key="rs-staff">How welcoming, kind, and attentive the staff were</div>
+      <div class="stars-row" id="stars-staff"></div>
+    </div>
+    <div class="rating-block">
+      <div class="rating-label" data-key="rl-clean">Cleanliness &amp; comfort</div>
+      <div class="rating-sub" data-key="rs-clean">Office and exam room cleanliness, comfort, and environment</div>
+      <div class="stars-row" id="stars-clean"></div>
+    </div>
+    <div class="rating-block">
+      <div class="rating-label" data-key="rl-care">Care from your provider</div>
+      <div class="rating-sub" data-key="rs-care">How heard, informed, and cared for you felt</div>
+      <div class="stars-row" id="stars-care"></div>
+    </div>
+    <div class="rating-block">
+      <div class="rating-label" data-key="rl-checkout">Check-out &amp; billing</div>
+      <div class="rating-sub" data-key="rs-checkout">Ease of checkout, payment process, and follow-up instructions</div>
+      <div class="stars-row" id="stars-checkout"></div>
+    </div>
+    <div class="rating-block featured">
+      <div class="rating-label"><span data-key="rl-overall">Overall experience</span> <span class="req">*</span></div>
+      <div class="rating-sub" data-key="rs-overall">Your overall impression of today's visit</div>
+      <div class="stars-row" id="stars-overall"></div>
+    </div>
+    <div class="err-msg" id="err2" style="margin-bottom:10px" data-key="err2">Please rate your overall experience to continue.</div>
   </div>
   <div class="nav-row">
-    <button class="btn-back" onclick="gotoStep(1)">← Back</button>
-    <button class="btn-gold" style="flex:1" onclick="next2()">Continue →</button>
+    <button class="btn-back" onclick="gotoStep(1)" data-key="btn-back">← Back</button>
+    <button class="btn-gold" style="flex:1" onclick="next2()" data-key="btn-continue">Continue →</button>
   </div>
 </div>
 
 <!-- STEP 3 -->
 <div id="v-step3" class="view">
-  <div class="wc-header"><div><div class="logo-l1">The Women's Center</div><div class="logo-l2">Guest experience review</div></div></div>
+  <div class="wc-header">
+    <div><div class="logo-l1">The Women's Center</div><div class="logo-l2">Guest experience review</div></div>
+    <div class="lang-toggle" onclick="toggleLang()">
+      <span class="lang-opt" data-lang="en">EN</span>
+      <span class="lang-sep">/</span>
+      <span class="lang-opt" data-lang="es">ES</span>
+    </div>
+  </div>
   <div class="progress-wrap"><div class="progress-fill" style="width:75%"></div></div>
-  <div class="step-header"><div class="step-eye">Step 3 of 4</div><div class="step-title">In your own words</div></div>
+  <div class="step-header">
+    <div class="step-eye" data-key="step3-eye">Step 3 of 4</div>
+    <div class="step-title" data-key="step3-title">In your own words</div>
+  </div>
   <div class="card">
     <div class="field">
-      <label>What went well during your visit?</label>
-      <textarea id="s3-good" placeholder="e.g. The staff made me feel comfortable, the wait was short..."></textarea>
+      <label data-key="lbl-good">What went well during your visit?</label>
+      <p class="phi-note" data-key="phi-note1">Please do not include medical conditions, diagnoses, medications, or personal health information.</p>
+      <textarea id="s3-good" data-ph-key="ph-good" placeholder="e.g. The staff made me feel comfortable, the wait was short..."></textarea>
     </div>
     <div class="field">
-      <label>What could we improve?</label>
-      <textarea id="s3-improve" placeholder="e.g. The check-in process took a while..."></textarea>
+      <label data-key="lbl-improve">What could we improve?</label>
+      <p class="phi-note" data-key="phi-note2">This form is for service experience feedback only and should not include medical or personal health information.</p>
+      <textarea id="s3-improve" data-ph-key="ph-improve" placeholder="e.g. The check-in process took a while..."></textarea>
     </div>
     <div class="field">
-      <label>Would you recommend The Women's Center? <span class="req">*</span></label>
+      <label><span data-key="lbl-rec">Would you recommend The Women's Center?</span> <span class="req">*</span></label>
       <div class="rec-row">
-        <button class="rec-btn" id="rec-yes" onclick="setRec('yes')">Yes, definitely</button>
-        <button class="rec-btn" id="rec-maybe" onclick="setRec('maybe')">Maybe</button>
-        <button class="rec-btn" id="rec-no" onclick="setRec('no')">No</button>
+        <button class="rec-btn" id="rec-yes" onclick="setRec('yes')" data-key="rec-yes">Yes, definitely</button>
+        <button class="rec-btn" id="rec-maybe" onclick="setRec('maybe')" data-key="rec-maybe">Maybe</button>
+        <button class="rec-btn" id="rec-no" onclick="setRec('no')" data-key="rec-no">No</button>
       </div>
     </div>
-    <div class="err-msg" id="err3">Please let us know if you'd recommend us.</div>
+    <div class="err-msg" id="err3" data-key="err3">Please let us know if you'd recommend us.</div>
   </div>
   <div class="nav-row">
-    <button class="btn-back" onclick="gotoStep(2)">← Back</button>
-    <button class="btn-gold" style="flex:1" onclick="next3()">Continue →</button>
+    <button class="btn-back" onclick="gotoStep(2)" data-key="btn-back">← Back</button>
+    <button class="btn-gold" style="flex:1" onclick="next3()" data-key="btn-continue">Continue →</button>
   </div>
 </div>
 
 <!-- STEP 4 -->
 <div id="v-step4" class="view">
-  <div class="wc-header"><div><div class="logo-l1">The Women's Center</div><div class="logo-l2">Guest experience review</div></div></div>
+  <div class="wc-header">
+    <div><div class="logo-l1">The Women's Center</div><div class="logo-l2">Guest experience review</div></div>
+    <div class="lang-toggle" onclick="toggleLang()">
+      <span class="lang-opt" data-lang="en">EN</span>
+      <span class="lang-sep">/</span>
+      <span class="lang-opt" data-lang="es">ES</span>
+    </div>
+  </div>
   <div class="progress-wrap"><div class="progress-fill" style="width:92%"></div></div>
-  <div class="step-header"><div class="step-eye">Step 4 of 4 — Optional</div><div class="step-title">One last thing</div></div>
+  <div class="step-header">
+    <div class="step-eye" data-key="step4-eye">Step 4 of 4 — Optional</div>
+    <div class="step-title" data-key="step4-title">One last thing</div>
+  </div>
   <div class="card">
     <div class="field">
-      <label>First name (optional)</label>
-      <input type="text" id="s4-name" placeholder="Leave blank to remain anonymous" maxlength="40">
+      <label data-key="lbl-name">First name (optional)</label>
+      <input type="text" id="s4-name" data-ph-key="ph-name" placeholder="Leave blank to remain anonymous" maxlength="40">
     </div>
     <div class="field">
-      <label>How did you hear about us?</label>
+      <label data-key="lbl-hear">How did you hear about us?</label>
       <select id="s4-hear">
-        <option value="">Select...</option>
-        <option>Google search</option><option>Google Maps</option><option>Friend or family referral</option>
-        <option>Insurance directory</option><option>Social media</option><option>Already a patient</option><option>Other</option>
+        <option value="" data-key="opt-select">Select...</option>
+        <option value="Google search" data-key="opt-hear-google">Google search</option>
+        <option value="Google Maps" data-key="opt-hear-maps">Google Maps</option>
+        <option value="Friend or family referral" data-key="opt-hear-friend">Friend or family referral</option>
+        <option value="Insurance directory" data-key="opt-hear-insurance">Insurance directory</option>
+        <option value="Social media" data-key="opt-hear-social">Social media</option>
+        <option value="Already a patient" data-key="opt-hear-patient">Already a patient</option>
+        <option value="Other" data-key="opt-hear-other">Other</option>
       </select>
     </div>
     <div class="field">
-      <label>Is this your first visit?</label>
+      <label data-key="lbl-first">Is this your first visit?</label>
       <select id="s4-first">
-        <option value="">Select...</option>
-        <option>Yes, first visit</option><option>No, I've been before</option>
+        <option value="" data-key="opt-select">Select...</option>
+        <option value="Yes, first visit" data-key="opt-first-yes">Yes, first visit</option>
+        <option value="No, I've been before" data-key="opt-first-no">No, I've been before</option>
       </select>
     </div>
+    <div class="field">
+      <label data-key="lbl-best">What was the best part of your visit?</label>
+      <div class="tap-row" id="best-tags">
+        <button class="tap-btn" data-tag="staff" onclick="toggleBest('staff')" data-key="tap-staff">The staff</button>
+        <button class="tap-btn" data-tag="wait" onclick="toggleBest('wait')" data-key="tap-wait">Short wait</button>
+        <button class="tap-btn" data-tag="prov" onclick="toggleBest('prov')" data-key="tap-prov">My provider</button>
+        <button class="tap-btn" data-tag="clean" onclick="toggleBest('clean')" data-key="tap-clean">Clean office</button>
+        <button class="tap-btn" data-tag="checkin" onclick="toggleBest('checkin')" data-key="tap-checkin">Easy check-in</button>
+        <button class="tap-btn" data-tag="felt-heard" onclick="toggleBest('felt-heard')" data-key="tap-felt-heard">Felt heard</button>
+      </div>
+    </div>
+    <div class="field">
+      <label data-key="lbl-heard">Did you feel your concerns were heard?</label>
+      <div class="rec-row">
+        <button class="rec-btn" id="heard-yes" onclick="setHeard('yes')" data-key="tap-heard-yes">Yes</button>
+        <button class="rec-btn" id="heard-no" onclick="setHeard('no')" data-key="tap-heard-no">No</button>
+      </div>
+    </div>
   </div>
-  <div class="notice-bar"><i class="ti ti-shield-check"></i><span>No medical or health information is collected. This is an experience-based review only. Your identity is always optional.</span></div>
+  <div class="notice-bar"><i class="ti ti-shield-check"></i><span data-key="notice-step4">No medical or health information is collected. This is an experience-based review only. Your identity is always optional.</span></div>
   <div class="nav-row" style="margin-top:12px">
-    <button class="btn-back" onclick="gotoStep(3)">← Back</button>
-    <button class="btn-gold" style="flex:1" onclick="submitReview()">Submit review</button>
+    <button class="btn-back" onclick="gotoStep(3)" data-key="btn-back">← Back</button>
+    <button class="btn-gold" style="flex:1" onclick="submitReview()" data-key="btn-submit">Submit review</button>
   </div>
-  <span class="skip-link" onclick="submitReview()">Skip and submit anonymously</span>
+  <span class="skip-link" onclick="submitReview()" data-key="skip-anon">Skip and submit anonymously</span>
 </div>
 
 <!-- SUCCESS -->
 <div id="v-success" class="view">
-  <div class="wc-header"><div><div class="logo-l1">The Women's Center</div><div class="logo-l2">Guest experience review</div></div></div>
+  <div class="wc-header">
+    <div><div class="logo-l1">The Women's Center</div><div class="logo-l2">Guest experience review</div></div>
+    <div class="lang-toggle" onclick="toggleLang()">
+      <span class="lang-opt" data-lang="en">EN</span>
+      <span class="lang-sep">/</span>
+      <span class="lang-opt" data-lang="es">ES</span>
+    </div>
+  </div>
   <div class="wc-hero" style="padding:40px 24px">
     <div class="success-icon"><i class="ti ti-circle-check"></i></div>
-    <div class="eyebrow">Thank you!</div>
-    <div class="hero-title" style="font-size:24px">Your review has been submitted</div>
-    <div class="hero-sub">Our medical director will review your feedback before publishing. Your experience helps us improve care for every patient at all 9 of our locations.</div>
-    <button class="btn-gold" onclick="restart()">Submit another review</button>
+    <div class="eyebrow" data-key="success-eyebrow">Thank you!</div>
+    <div class="hero-title" style="font-size:24px" data-key="success-title">Your review has been submitted</div>
+    <div class="hero-sub" data-key="success-sub">Our medical director will review your feedback before publishing. Your experience helps us improve care for every patient at all 9 of our locations.</div>
+    <button class="btn-gold" onclick="restart()" data-key="btn-restart">Submit another review</button>
   </div>
   <div class="qr-card">
-    <div class="qr-icon"><i class="ti ti-qrcode"></i></div>
-    <div class="qr-text"><strong>Know someone who visited us?</strong><br>Share this review link or point them to the QR code at the front desk. Every review helps us grow and improve.</div>
+    <div class="qr-icon"><i class="ti ti-brand-google"></i></div>
+    <div class="qr-text">
+      <strong data-key="google-prompt">We're so glad you had a great experience. Would you mind sharing your feedback on Google?</strong>
+      <a href="https://g.page/r/womens-center-review" target="_blank" class="btn-google-review" data-key="btn-google">Leave a Google Review</a>
+    </div>
   </div>
   <div style="padding:0 20px 20px;text-align:center">
-    <span class="skip-link" style="padding:0" onclick="showLogin()">Medical director login →</span>
+    <span class="skip-link" style="padding:0" onclick="showLogin()" data-key="login-link-success">Medical director login →</span>
   </div>
   <div class="wc-footer">The Women's Center &nbsp;·&nbsp; wcorlando.com</div>
 </div>
@@ -404,155 +537,443 @@ html,body{background:#1E1410;font-family:Georgia,serif;color:#3A2818;height:100%
 </div><!-- end .app -->
 
 <script>
-var state={loc:'',prov:'',type:'',when:'',ratings:{},rec:'',good:'',improve:'',name:'',hear:'',first:''};
-var tabFilter='all';
-var ratingIds=['checkin','lobbywait','provwait','staff','clean','care','checkout','overall'];
-var ratingLabels={checkin:'Check-in',lobbywait:'Lobby wait',provwait:'Provider wait',staff:'Staff',clean:'Cleanliness',care:'Provider care',checkout:'Check-out',overall:'Overall'};
+var lang = 'en';
 
-var reviews=[
-  {id:1,name:'Maria G.',loc:"Hunter's Creek, Orlando",prov:'Dr. Priya Patel',type:'Annual wellness exam',when:'Today',ratings:{checkin:5,lobbywait:4,provwait:4,staff:5,clean:5,care:5,checkout:5,overall:5},rec:'yes',good:'Dr. Patel was so patient and thorough. The staff were warm and welcoming from the moment I arrived.',improve:'',hear:'Google search',first:"No, I've been before",status:'pending',date:'May 11, 2026'},
-  {id:2,name:'Anonymous',loc:'St. Cloud',prov:'Dr. Douglas Gearity',type:'Follow-up appointment',when:'Yesterday',ratings:{checkin:4,lobbywait:3,provwait:3,staff:4,clean:5,care:5,checkout:4,overall:4},rec:'yes',good:'Short wait and the doctor answered all my questions thoroughly.',improve:'Parking can be tricky to find.',hear:'',first:"No, I've been before",status:'pending',date:'May 10, 2026'},
-  {id:3,name:'Renae O.',loc:'Winter Park',prov:'Dr. Isalis Sanchez-Pena',type:'New patient visit',when:'Within the past week',ratings:{checkin:5,lobbywait:5,provwait:5,staff:5,clean:5,care:5,checkout:5,overall:5},rec:'yes',good:'First visit and I felt completely at ease. Highly professional team throughout.',improve:'',hear:'Friend or family referral',first:'Yes, first visit',status:'approved',date:'May 9, 2026'},
-  {id:4,name:'Carmen V.',loc:'Oviedo',prov:'Dr. Yasmine Kareem',type:'Annual wellness exam',when:'Within the past week',ratings:{checkin:3,lobbywait:2,provwait:2,staff:4,clean:4,care:4,checkout:3,overall:3},rec:'maybe',good:'The care from the doctor was good once I was seen.',improve:'Wait time was over 45 minutes past my appointment time.',hear:'Insurance directory',first:"No, I've been before",status:'pending',date:'May 8, 2026'},
-  {id:5,name:'Lisette M.',loc:'Celebration',prov:'Dr. Priya Patel',type:'OB / prenatal visit',when:'Within the past week',ratings:{checkin:5,lobbywait:5,provwait:5,staff:5,clean:5,care:5,checkout:5,overall:5},rec:'yes',good:'Best OB/GYN office in Central Florida. Everyone is kind and professional.',improve:'',hear:'Google Maps',first:"No, I've been before",status:'posted',date:'May 7, 2026'},
+var STRINGS = {
+  en: {
+    'eyebrow-welcome': 'Patient experience',
+    'hero-title': 'How was your visit today?',
+    'hero-sub': "Your feedback helps us continue delivering exceptional women's health care across Central Florida. Takes about 2 minutes and is completely anonymous.",
+    'btn-start': 'Share my experience',
+    'notice-welcome': 'This form collects experience feedback only. No medical, clinical, or protected health information is requested or stored. Your identity is always optional.',
+    'login-link': 'Staff / medical director login →',
+    'login-link-success': 'Medical director login →',
+    'step1-eye': 'Step 1 of 4',
+    'step1-title': 'About your experience',
+    'lbl-loc': 'Location visited',
+    'lbl-prov': 'Provider you saw',
+    'lbl-when': 'When was your visit?',
+    'opt-select-loc': 'Select a location...',
+    'opt-select-prov': 'Select a provider...',
+    'opt-select': 'Select...',
+    'opt-today': 'Today',
+    'opt-yesterday': 'Yesterday',
+    'opt-week': 'Within the past week',
+    'opt-month': 'Within the past month',
+    'err1': 'Please select a location and provider to continue.',
+    'btn-back': '← Back',
+    'btn-continue': 'Continue →',
+    'step2-eye': 'Step 2 of 4',
+    'step2-title': 'Rate your experience',
+    'rl-checkin': 'Arrival & check-in',
+    'rs-checkin': 'Finding the office, parking, and front desk check-in process',
+    'rl-lobbywait': 'Lobby wait time',
+    'rs-lobbywait': 'Time spent waiting before being called back',
+    'rl-provwait': 'Wait time to see provider',
+    'rs-provwait': 'Time from being called back to seeing your provider',
+    'rl-staff': 'Staff friendliness',
+    'rs-staff': 'How welcoming, kind, and attentive the staff were',
+    'rl-clean': 'Cleanliness & comfort',
+    'rs-clean': 'Office and exam room cleanliness, comfort, and environment',
+    'rl-care': 'Care from your provider',
+    'rs-care': 'How heard, informed, and cared for you felt',
+    'rl-checkout': 'Check-out & billing',
+    'rs-checkout': 'Ease of checkout, payment process, and follow-up instructions',
+    'rl-overall': 'Overall experience',
+    'rs-overall': "Your overall impression of today's visit",
+    'err2': 'Please rate your overall experience to continue.',
+    'step3-eye': 'Step 3 of 4',
+    'step3-title': 'In your own words',
+    'lbl-good': 'What went well during your visit?',
+    'phi-note1': 'Please do not include medical conditions, diagnoses, medications, or personal health information.',
+    'ph-good': 'e.g. The staff made me feel comfortable, the wait was short…',
+    'lbl-improve': 'What could we improve?',
+    'phi-note2': 'This form is for service experience feedback only and should not include medical or personal health information.',
+    'ph-improve': 'e.g. The check-in process took a while…',
+    'lbl-rec': 'Would you recommend The Women’s Center?',
+    'rec-yes': 'Yes, definitely',
+    'rec-maybe': 'Maybe',
+    'rec-no': 'No',
+    'err3': "Please let us know if you'd recommend us.",
+    'step4-eye': 'Step 4 of 4 — Optional',
+    'step4-title': 'One last thing',
+    'lbl-name': 'First name (optional)',
+    'ph-name': 'Leave blank to remain anonymous',
+    'lbl-hear': 'How did you hear about us?',
+    'opt-hear-google': 'Google search',
+    'opt-hear-maps': 'Google Maps',
+    'opt-hear-friend': 'Friend or family referral',
+    'opt-hear-insurance': 'Insurance directory',
+    'opt-hear-social': 'Social media',
+    'opt-hear-patient': 'Already a patient',
+    'opt-hear-other': 'Other',
+    'lbl-first': 'Is this your first visit?',
+    'opt-first-yes': 'Yes, first visit',
+    'opt-first-no': "No, I've been before",
+    'lbl-best': 'What was the best part of your visit?',
+    'tap-staff': 'The staff',
+    'tap-wait': 'Short wait',
+    'tap-prov': 'My provider',
+    'tap-clean': 'Clean office',
+    'tap-checkin': 'Easy check-in',
+    'tap-felt-heard': 'Felt heard',
+    'lbl-heard': 'Did you feel your concerns were heard?',
+    'tap-heard-yes': 'Yes',
+    'tap-heard-no': 'No',
+    'notice-step4': 'No medical or health information is collected. This is an experience-based review only. Your identity is always optional.',
+    'btn-submit': 'Submit review',
+    'skip-anon': 'Skip and submit anonymously',
+    'success-eyebrow': 'Thank you!',
+    'success-title': 'Your review has been submitted',
+    'success-sub': 'Our medical director will review your feedback before publishing. Your experience helps us improve care for every patient at all 9 of our locations.',
+    'btn-restart': 'Submit another review',
+    'google-prompt': "We’re so glad you had a great experience. Would you mind sharing your feedback on Google?",
+    'btn-google': 'Leave a Google Review'
+  },
+  es: {
+    'eyebrow-welcome': 'Experiencia del paciente',
+    'hero-title': '¿Cómo fue su visita hoy?',
+    'hero-sub': 'Sus comentarios nos ayudan a continuar brindando una atención médica excepcional en toda la Florida Central. Toma aproximadamente 2 minutos y es completamente anónimo.',
+    'btn-start': 'Compartir mi experiencia',
+    'notice-welcome': 'Este formulario recopila solo comentarios sobre la experiencia. No se solicita ni almacena información médica, clínica o de salud protegida. Su identidad siempre es opcional.',
+    'login-link': 'Inicio de sesión del personal →',
+    'login-link-success': 'Inicio de sesión del director médico →',
+    'step1-eye': 'Paso 1 de 4',
+    'step1-title': 'Sobre su experiencia',
+    'lbl-loc': 'Ubicación visitada',
+    'lbl-prov': 'Proveedor que atendió',
+    'lbl-when': '¿Cuándo fue su visita?',
+    'opt-select-loc': 'Seleccione una ubicación...',
+    'opt-select-prov': 'Seleccione un proveedor...',
+    'opt-select': 'Seleccione...',
+    'opt-today': 'Hoy',
+    'opt-yesterday': 'Ayer',
+    'opt-week': 'Durante la semana pasada',
+    'opt-month': 'Durante el mes pasado',
+    'err1': 'Por favor seleccione una ubicación y un proveedor para continuar.',
+    'btn-back': '← Atrás',
+    'btn-continue': 'Continuar →',
+    'step2-eye': 'Paso 2 de 4',
+    'step2-title': 'Califique su experiencia',
+    'rl-checkin': 'Llegada y registro',
+    'rs-checkin': 'Encontrar la oficina, estacionamiento y proceso de registro en recepción',
+    'rl-lobbywait': 'Tiempo de espera en sala',
+    'rs-lobbywait': 'Tiempo de espera antes de ser llamado',
+    'rl-provwait': 'Tiempo de espera para ver al proveedor',
+    'rs-provwait': 'Tiempo desde ser llamado hasta ver a su proveedor',
+    'rl-staff': 'Amabilidad del personal',
+    'rs-staff': 'Qué tan amables y atentos fueron los empleados',
+    'rl-clean': 'Limpieza y comodidad',
+    'rs-clean': 'Limpieza, comodidad y ambiente de la oficina y sala de examen',
+    'rl-care': 'Atención de su proveedor',
+    'rs-care': 'Qué tan escuchado/a, informado/a y atendido/a se sintió',
+    'rl-checkout': 'Salida y facturación',
+    'rs-checkout': 'Facilidad de pago, proceso de cobro e instrucciones de seguimiento',
+    'rl-overall': 'Experiencia general',
+    'rs-overall': 'Su impresión general de la visita de hoy',
+    'err2': 'Por favor califique su experiencia general para continuar.',
+    'step3-eye': 'Paso 3 de 4',
+    'step3-title': 'En sus propias palabras',
+    'lbl-good': '¿Qué salió bien durante su visita?',
+    'phi-note1': 'Por favor no incluya condiciones médicas, diagnósticos, medicamentos ni información de salud personal.',
+    'ph-good': 'p.ej. El personal me hizo sentir cómodo/a, la espera fue corta…',
+    'lbl-improve': '¿Qué podríamos mejorar?',
+    'phi-note2': 'Este formulario es solo para comentarios sobre la experiencia del servicio y no debe incluir información médica o de salud personal.',
+    'ph-improve': 'p.ej. El proceso de registro tardó un poco…',
+    'lbl-rec': '¿Recomendaría The Women’s Center?',
+    'rec-yes': 'Sí, definitivamente',
+    'rec-maybe': 'Tal vez',
+    'rec-no': 'No',
+    'err3': 'Por favor indíquenos si nos recomendaría.',
+    'step4-eye': 'Paso 4 de 4 — Opcional',
+    'step4-title': 'Una última cosa',
+    'lbl-name': 'Nombre (Opcional)',
+    'ph-name': 'Deje en blanco para permanecer anónimo',
+    'lbl-hear': '¿Cómo nos conoció?',
+    'opt-hear-google': 'Búsqueda en Google',
+    'opt-hear-maps': 'Google Maps',
+    'opt-hear-friend': 'Referido por amigo o familiar',
+    'opt-hear-insurance': 'Directorio de seguros',
+    'opt-hear-social': 'Redes sociales',
+    'opt-hear-patient': 'Ya soy paciente',
+    'opt-hear-other': 'Otro',
+    'lbl-first': '¿Es su primera visita?',
+    'opt-first-yes': 'Sí, primera visita',
+    'opt-first-no': 'No, ya he venido antes',
+    'lbl-best': '¿Cuál fue la mejor parte de su visita?',
+    'tap-staff': 'El personal',
+    'tap-wait': 'Poca espera',
+    'tap-prov': 'Mi proveedor',
+    'tap-clean': 'Oficina limpia',
+    'tap-checkin': 'Registro fácil',
+    'tap-felt-heard': 'Me sentí escuchado/a',
+    'lbl-heard': '¿Sintió que sus preguntas fueron escuchadas?',
+    'tap-heard-yes': 'Sí',
+    'tap-heard-no': 'No',
+    'notice-step4': 'No se recopila información médica ni de salud. Esta es una reseña basada en la experiencia únicamente. Su identidad siempre es opcional.',
+    'btn-submit': 'Enviar reseña',
+    'skip-anon': 'Omitir y enviar de forma anónima',
+    'success-eyebrow': '¡Gracias!',
+    'success-title': 'Su reseña ha sido enviada',
+    'success-sub': 'Nuestro director médico revisará sus comentarios antes de publicarlos. Su experiencia nos ayuda a mejorar la atención para cada paciente en nuestras 9 ubicaciones.',
+    'btn-restart': 'Enviar otra reseña',
+    'google-prompt': 'Nos alegra que haya tenido una gran experiencia. ¿Le importaría compartir su opinión en Google?',
+    'btn-google': 'Dejar una reseña en Google'
+  }
+};
+
+function applyLang() {
+  var S = STRINGS[lang];
+  document.querySelectorAll('[data-key]').forEach(function(el) {
+    var k = el.getAttribute('data-key');
+    if (S[k] !== undefined) el.textContent = S[k];
+  });
+  document.querySelectorAll('[data-ph-key]').forEach(function(el) {
+    var k = el.getAttribute('data-ph-key');
+    if (S[k] !== undefined) el.placeholder = S[k];
+  });
+  document.querySelectorAll('.lang-opt').forEach(function(el) {
+    el.classList.toggle('active', el.getAttribute('data-lang') === lang);
+  });
+  document.documentElement.lang = lang;
+}
+
+function toggleLang() {
+  lang = lang === 'en' ? 'es' : 'en';
+  applyLang();
+}
+
+var state = {loc:'',prov:'',type:'',when:'',ratings:{},rec:'',good:'',improve:'',name:'',hear:'',first:'',lang:'en',bestParts:[],feltHeard:''};
+var tabFilter = 'all';
+var ratingIds = ['checkin','lobbywait','provwait','staff','clean','care','checkout','overall'];
+var ratingLabels = {checkin:'Check-in',lobbywait:'Lobby wait',provwait:'Provider wait',staff:'Staff',clean:'Cleanliness',care:'Provider care',checkout:'Check-out',overall:'Overall'};
+
+var reviews = [
+  {id:1,name:'Maria G.',loc:"Hunter's Creek, Orlando",prov:'Dr. Priya Patel',type:'Annual wellness exam',when:'Today',ratings:{checkin:5,lobbywait:4,provwait:4,staff:5,clean:5,care:5,checkout:5,overall:5},rec:'yes',good:'Dr. Patel was so patient and thorough. The staff were warm and welcoming from the moment I arrived.',improve:'',hear:'Google search',first:"No, I've been before",status:'pending',date:'May 11, 2026',lang:'en',bestParts:[],feltHeard:'yes'},
+  {id:2,name:'Anonymous',loc:'St. Cloud',prov:'Dr. Douglas Gearity',type:'Follow-up appointment',when:'Yesterday',ratings:{checkin:4,lobbywait:3,provwait:3,staff:4,clean:5,care:5,checkout:4,overall:4},rec:'yes',good:'Short wait and the doctor answered all my questions thoroughly.',improve:'Parking can be tricky to find.',hear:'',first:"No, I've been before",status:'pending',date:'May 10, 2026',lang:'en',bestParts:[],feltHeard:''},
+  {id:3,name:'Renae O.',loc:'Winter Park',prov:'Dr. Isalis Sanchez-Pena',type:'New patient visit',when:'Within the past week',ratings:{checkin:5,lobbywait:5,provwait:5,staff:5,clean:5,care:5,checkout:5,overall:5},rec:'yes',good:'First visit and I felt completely at ease. Highly professional team throughout.',improve:'',hear:'Friend or family referral',first:'Yes, first visit',status:'approved',date:'May 9, 2026',lang:'en',bestParts:[],feltHeard:'yes'},
+  {id:4,name:'Carmen V.',loc:'Oviedo',prov:'Dr. Yasmine Kareem',type:'Annual wellness exam',when:'Within the past week',ratings:{checkin:3,lobbywait:2,provwait:2,staff:4,clean:4,care:4,checkout:3,overall:3},rec:'maybe',good:'La atención del médico fue buena una vez que me atendieron.',improve:'El tiempo de espera fue más de 45 minutos después de mi cita.',hear:'Insurance directory',first:"No, I've been before",status:'pending',date:'May 8, 2026',lang:'es',bestParts:[],feltHeard:''},
+  {id:5,name:'Lisette M.',loc:'Celebration',prov:'Dr. Priya Patel',type:'OB / prenatal visit',when:'Within the past week',ratings:{checkin:5,lobbywait:5,provwait:5,staff:5,clean:5,care:5,checkout:5,overall:5},rec:'yes',good:'Best OB/GYN office in Central Florida. Everyone is kind and professional.',improve:'',hear:'Google Maps',first:"No, I've been before",status:'posted',date:'May 7, 2026',lang:'en',bestParts:[],feltHeard:'yes'}
 ];
-var nextId=6;
+var nextId = 6;
 
-function showView(id){document.querySelectorAll('.view').forEach(function(v){v.classList.remove('active')});document.getElementById(id).classList.add('active');window.scrollTo(0,0)}
-function gotoStep(n){var m={0:'v-welcome',1:'v-step1',2:'v-step2',3:'v-step3',4:'v-step4'};if(m[n])showView(m[n])}
-function showLogin(){showView('v-login')}
+function showView(id) {
+  document.querySelectorAll('.view').forEach(function(v) { v.classList.remove('active'); });
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0, 0);
+}
+function gotoStep(n) {
+  var m = {0:'v-welcome',1:'v-step1',2:'v-step2',3:'v-step3',4:'v-step4'};
+  if (m[n]) showView(m[n]);
+}
+function showLogin() { showView('v-login'); }
 
-function buildStars(){
-  ratingIds.forEach(function(id){
-    var row=document.getElementById('stars-'+id);if(!row)return;row.innerHTML='';
-    for(var i=1;i<=5;i++){
-      var s=document.createElement('span');
-      s.className='star';s.textContent='★';
-      (function(rid,rv){s.onclick=function(){setRating(rid,rv)}})(id,i);
+function buildStars() {
+  ratingIds.forEach(function(id) {
+    var row = document.getElementById('stars-' + id);
+    if (!row) return;
+    row.innerHTML = '';
+    for (var i = 1; i <= 5; i++) {
+      var s = document.createElement('span');
+      s.className = 'star';
+      s.textContent = '★';
+      (function(rid, rv) { s.onclick = function() { setRating(rid, rv); }; })(id, i);
       row.appendChild(s);
     }
   });
 }
 
-function setRating(id,val){
-  state.ratings[id]=val;
-  var row=document.getElementById('stars-'+id);if(!row)return;
-  var stars=row.querySelectorAll('.star');
-  stars.forEach(function(s,i){s.classList.toggle('lit',i<val)});
+function setRating(id, val) {
+  state.ratings[id] = val;
+  var row = document.getElementById('stars-' + id);
+  if (!row) return;
+  row.querySelectorAll('.star').forEach(function(s, i) { s.classList.toggle('lit', i < val); });
 }
 
-function setRec(v){
-  state.rec=v;
-  document.querySelectorAll('.rec-btn').forEach(function(b){b.classList.remove('sel')});
-  document.getElementById('rec-'+v).classList.add('sel');
+function setRec(v) {
+  state.rec = v;
+  document.querySelectorAll('.rec-btn').forEach(function(b) { b.classList.remove('sel'); });
+  document.getElementById('rec-' + v).classList.add('sel');
 }
 
-function next1(){
-  var l=document.getElementById('s1-loc').value,p=document.getElementById('s1-prov').value;
-  if(!l||!p){document.getElementById('err1').style.display='block';return}
-  document.getElementById('err1').style.display='none';
-  state.loc=l;state.prov=p;state.when=document.getElementById('s1-when').value;
+function toggleBest(tag) {
+  var idx = state.bestParts.indexOf(tag);
+  if (idx === -1) state.bestParts.push(tag);
+  else state.bestParts.splice(idx, 1);
+  document.querySelectorAll('#best-tags .tap-btn').forEach(function(b) {
+    b.classList.toggle('sel', state.bestParts.indexOf(b.getAttribute('data-tag')) !== -1);
+  });
+}
+
+function setHeard(v) {
+  state.feltHeard = v;
+  document.getElementById('heard-yes').classList.remove('sel');
+  document.getElementById('heard-no').classList.remove('sel');
+  document.getElementById('heard-' + v).classList.add('sel');
+}
+
+function next1() {
+  var l = document.getElementById('s1-loc').value, p = document.getElementById('s1-prov').value;
+  if (!l || !p) { document.getElementById('err1').style.display = 'block'; return; }
+  document.getElementById('err1').style.display = 'none';
+  state.loc = l; state.prov = p; state.when = document.getElementById('s1-when').value;
   gotoStep(2);
 }
-function next2(){
-  if(!state.ratings.overall){document.getElementById('err2').style.display='block';return}
-  document.getElementById('err2').style.display='none';gotoStep(3);
+function next2() {
+  if (!state.ratings.overall) { document.getElementById('err2').style.display = 'block'; return; }
+  document.getElementById('err2').style.display = 'none';
+  gotoStep(3);
 }
-function next3(){
-  state.good=document.getElementById('s3-good').value.trim();
-  state.improve=document.getElementById('s3-improve').value.trim();
-  if(!state.rec){document.getElementById('err3').style.display='block';return}
-  document.getElementById('err3').style.display='none';gotoStep(4);
+function next3() {
+  state.good = document.getElementById('s3-good').value.trim();
+  state.improve = document.getElementById('s3-improve').value.trim();
+  if (!state.rec) { document.getElementById('err3').style.display = 'block'; return; }
+  document.getElementById('err3').style.display = 'none';
+  gotoStep(4);
 }
-function submitReview(){
-  state.name=document.getElementById('s4-name').value.trim()||'Anonymous';
-  state.hear=document.getElementById('s4-hear').value;
-  state.first=document.getElementById('s4-first').value;
-  var r=JSON.parse(JSON.stringify(state));
-  r.id=nextId++;r.status='pending';r.date=new Date().toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
+function submitReview() {
+  state.name = document.getElementById('s4-name').value.trim() || 'Anonymous';
+  state.hear = document.getElementById('s4-hear').value;
+  state.first = document.getElementById('s4-first').value;
+  state.lang = lang;
+  var r = JSON.parse(JSON.stringify(state));
+  r.id = nextId++;
+  r.status = 'pending';
+  r.date = new Date().toLocaleDateString('en-US', {month:'long',day:'numeric',year:'numeric'});
   reviews.unshift(r);
   showView('v-success');
 }
-function restart(){
-  state={loc:'',prov:'',type:'',when:'',ratings:{},rec:'',good:'',improve:'',name:'',hear:'',first:''};
-  document.querySelectorAll('.star').forEach(function(s){s.classList.remove('lit')});
-  document.querySelectorAll('.rec-btn').forEach(function(b){b.classList.remove('sel')});
-  ['s1-loc','s1-prov','s1-when','s3-good','s3-improve','s4-name','s4-hear','s4-first'].forEach(function(id){var el=document.getElementById(id);if(el)el.value=''});
+function restart() {
+  var savedLang = lang;
+  state = {loc:'',prov:'',type:'',when:'',ratings:{},rec:'',good:'',improve:'',name:'',hear:'',first:'',lang:savedLang,bestParts:[],feltHeard:''};
+  document.querySelectorAll('.star').forEach(function(s) { s.classList.remove('lit'); });
+  document.querySelectorAll('.rec-btn').forEach(function(b) { b.classList.remove('sel'); });
+  document.querySelectorAll('.tap-btn').forEach(function(b) { b.classList.remove('sel'); });
+  ['s1-loc','s1-prov','s1-when','s3-good','s3-improve','s4-name','s4-hear','s4-first'].forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) el.value = '';
+  });
   showView('v-welcome');
 }
 
-function tryLogin(){
-  var u=document.getElementById('lu').value.trim(),p=document.getElementById('lp').value.trim();
-  if(u==='director'&&p==='admin123'){
-    document.getElementById('lerr').style.display='none';
-    tabFilter='all';renderAdmin();showView('v-admin');
-  } else {document.getElementById('lerr').style.display='block'}
+function tryLogin() {
+  var u = document.getElementById('lu').value.trim(), p = document.getElementById('lp').value.trim();
+  if (u === 'director' && p === 'admin123') {
+    document.getElementById('lerr').style.display = 'none';
+    tabFilter = 'all';
+    renderAdmin();
+    showView('v-admin');
+  } else {
+    document.getElementById('lerr').style.display = 'block';
+  }
 }
 
-function setTab(t,el){
-  tabFilter=t;
-  document.querySelectorAll('.tab').forEach(function(b){b.classList.remove('active')});
-  el.classList.add('active');renderList();
+function setTab(t, el) {
+  tabFilter = t;
+  document.querySelectorAll('.tab').forEach(function(b) { b.classList.remove('active'); });
+  el.classList.add('active');
+  renderList();
 }
 
-function avg(arr){return arr.length?Math.round(arr.reduce(function(a,b){return a+b},0)/arr.length*10)/10:0}
-function starsHtml(n){var s='';for(var i=1;i<=5;i++)s+=(i<=(n||0)?'★':'☆');return s}
-function badgeHtml(st){var m={pending:['b-pend','Pending'],approved:['b-appr','Approved'],rejected:['b-rej','Rejected'],posted:['b-post','Posted']};var b=m[st]||['b-pend',st];return'<span class="badge '+b[0]+'">'+b[1]+'</span>'}
+function avg(arr) { return arr.length ? Math.round(arr.reduce(function(a,b){return a+b},0)/arr.length*10)/10 : 0; }
+function starsHtml(n) { var s=''; for(var i=1;i<=5;i++) s+=(i<=(n||0)?'★':'☆'); return s; }
+function badgeHtml(st) {
+  var m = {pending:['b-pend','Pending'],approved:['b-appr','Approved'],rejected:['b-rej','Rejected'],posted:['b-post','Posted']};
+  var b = m[st] || ['b-pend', st];
+  return '<span class="badge '+b[0]+'">'+b[1]+'</span>';
+}
 
-function renderAdmin(){renderStats();renderList()}
+function translateReview(id) {
+  var r = reviews.find(function(x) { return x.id === id; });
+  if (!r) return;
+  var btn = document.querySelector('[data-translate-id="'+id+'"]');
+  if (btn) { btn.textContent = 'Translating…'; btn.disabled = true; }
 
-function renderStats(){
-  var a=avg(reviews.filter(function(r){return r.status!=='rejected'}).map(function(r){return r.ratings.overall||0}));
-  document.getElementById('stat-grid').innerHTML=[
+  var promises = [];
+  if (r.good) {
+    promises.push(
+      fetch('https://api.mymemory.translated.net/get?q='+encodeURIComponent(r.good)+'&langpair=es|en')
+        .then(function(res){return res.json();})
+        .then(function(data){return {field:'good',text:data.responseData.translatedText};})
+    );
+  }
+  if (r.improve) {
+    promises.push(
+      fetch('https://api.mymemory.translated.net/get?q='+encodeURIComponent(r.improve)+'&langpair=es|en')
+        .then(function(res){return res.json();})
+        .then(function(data){return {field:'improve',text:data.responseData.translatedText};})
+    );
+  }
+
+  Promise.all(promises).then(function(results) {
+    results.forEach(function(result) { r['translated_'+result.field] = result.text; });
+    renderList();
+  }).catch(function() {
+    if (btn) { btn.textContent = 'Translate to English'; btn.disabled = false; }
+  });
+}
+
+function renderAdmin() { renderStats(); renderList(); }
+
+function renderStats() {
+  var a = avg(reviews.filter(function(r){return r.status!=='rejected';}).map(function(r){return r.ratings.overall||0;}));
+  document.getElementById('stat-grid').innerHTML = [
     {n:reviews.length,l:'Total reviews'},
-    {n:reviews.filter(function(r){return r.status==='pending'}).length,l:'Pending'},
-    {n:reviews.filter(function(r){return r.status==='approved'||r.status==='posted'}).length,l:'Approved'},
+    {n:reviews.filter(function(r){return r.status==='pending';}).length,l:'Pending'},
+    {n:reviews.filter(function(r){return r.status==='approved'||r.status==='posted';}).length,l:'Approved'},
     {n:a,l:'Avg. rating'}
-  ].map(function(s){return'<div class="stat"><div class="stat-n">'+s.n+'</div><div class="stat-l">'+s.l+'</div></div>'}).join('');
+  ].map(function(s){return '<div class="stat"><div class="stat-n">'+s.n+'</div><div class="stat-l">'+s.l+'</div></div>';}).join('');
 }
 
-function renderList(){
-  var lf=document.getElementById('fl').value,pf=document.getElementById('fp').value,rf=document.getElementById('fr').value;
-  var list=reviews.filter(function(r){
-    if(tabFilter!=='all'&&r.status!==tabFilter)return false;
-    if(lf&&r.loc!==lf)return false;
-    if(pf&&r.prov!==pf)return false;
-    if(rf&&(r.ratings.overall||0)!==+rf)return false;
+function renderList() {
+  var lf = document.getElementById('fl').value, pf = document.getElementById('fp').value, rf = document.getElementById('fr').value;
+  var list = reviews.filter(function(r) {
+    if (tabFilter !== 'all' && r.status !== tabFilter) return false;
+    if (lf && r.loc !== lf) return false;
+    if (pf && r.prov !== pf) return false;
+    if (rf && (r.ratings.overall||0) !== +rf) return false;
     return true;
   });
   renderStats();
-  if(!list.length){document.getElementById('rev-list').innerHTML='<div class="empty">No reviews match these filters.</div>';return}
-  document.getElementById('rev-list').innerHTML=list.map(function(r){
-    var subIds=ratingIds.filter(function(id){return id!=='overall'});
-    var sub=subIds.map(function(id){return'<div class="sub-row"><span>'+ratingLabels[id]+'</span><span class="sub-stars">'+starsHtml(r.ratings[id]||0)+'</span></div>'}).join('');
-    var del='<button class="act del" onclick="deleteReview('+r.id+')"><i class="ti ti-trash"></i> Delete</button>';
-    var acts='';
-    if(r.status==='pending')acts='<button class="act app" onclick="setStatus('+r.id+',\'approved\')"><i class="ti ti-check"></i> Approve</button><button class="act rej" onclick="setStatus('+r.id+',\'rejected\')"><i class="ti ti-x"></i> Reject</button>'+del;
-    if(r.status==='approved')acts='<button class="act goo" onclick="postTo('+r.id+',\'google\')"><i class="ti ti-brand-google"></i> Post to Google</button><button class="act web" onclick="postTo('+r.id+',\'web\')"><i class="ti ti-world"></i> Post to website</button>'+del;
-    if(r.status==='posted')acts='<span style="font-family:Arial,sans-serif;font-size:11px;color:var(--muted)"><i class="ti ti-circle-check"></i> Published online</span>'+del;
-    if(r.status==='rejected')acts='<span style="font-family:Arial,sans-serif;font-size:11px;color:var(--muted)">Not published</span>'+del;
-    return'<div class="rev-card" id="rc-'+r.id+'">'
-      +'<div class="rev-top"><div><div class="rev-name">'+r.name+'</div><div class="rev-stars">'+starsHtml(r.ratings.overall||0)+' <span style="font-family:Arial,sans-serif;font-size:11px;color:var(--muted)">'+(r.ratings.overall||'—')+'/5 overall</span></div></div>'+badgeHtml(r.status)+'</div>'
+  if (!list.length) { document.getElementById('rev-list').innerHTML = '<div class="empty">No reviews match these filters.</div>'; return; }
+  document.getElementById('rev-list').innerHTML = list.map(function(r) {
+    var subIds = ratingIds.filter(function(id){return id!=='overall';});
+    var sub = subIds.map(function(id){return '<div class="sub-row"><span>'+ratingLabels[id]+'</span><span class="sub-stars">'+starsHtml(r.ratings[id]||0)+'</span></div>';}).join('');
+    var del = '<button class="act del" onclick="deleteReview('+r.id+')"><i class="ti ti-trash"></i> Delete</button>';
+    var trBtn = (r.lang === 'es') ? '<button class="act tr" data-translate-id="'+r.id+'" onclick="translateReview('+r.id+')"><i class="ti ti-language"></i> Translate to English</button>' : '';
+    var acts = '';
+    if (r.status==='pending') acts='<button class="act app" onclick="setStatus('+r.id+',\'approved\')"><i class="ti ti-check"></i> Approve</button><button class="act rej" onclick="setStatus('+r.id+',\'rejected\')"><i class="ti ti-x"></i> Reject</button>'+trBtn+del;
+    if (r.status==='approved') acts='<button class="act goo" onclick="postTo('+r.id+',\'google\')"><i class="ti ti-brand-google"></i> Post to Google</button><button class="act web" onclick="postTo('+r.id+',\'web\')"><i class="ti ti-world"></i> Post to website</button>'+trBtn+del;
+    if (r.status==='posted') acts='<span style="font-family:Arial,sans-serif;font-size:11px;color:var(--muted)"><i class="ti ti-circle-check"></i> Published online</span>'+trBtn+del;
+    if (r.status==='rejected') acts='<span style="font-family:Arial,sans-serif;font-size:11px;color:var(--muted)">Not published</span>'+trBtn+del;
+    var langBadge = (r.lang === 'es') ? ' <span class="badge b-es">ES</span>' : '';
+    var translatedGood = (r.translated_good) ? '<div class="rev-translate"><span class="translate-label">Translated:</span>'+r.translated_good+'</div>' : '';
+    var translatedImprove = (r.translated_improve) ? '<div class="rev-translate"><span class="translate-label">Translated:</span>'+r.translated_improve+'</div>' : '';
+    return '<div class="rev-card" id="rc-'+r.id+'">'
+      +'<div class="rev-top"><div><div class="rev-name">'+r.name+langBadge+'</div><div class="rev-stars">'+starsHtml(r.ratings.overall||0)+' <span style="font-family:Arial,sans-serif;font-size:11px;color:var(--muted)">'+(r.ratings.overall||'—')+'/5 overall</span></div></div>'+badgeHtml(r.status)+'</div>'
       +'<div class="rev-meta">'+r.date+' &nbsp;·&nbsp; '+r.loc+' &nbsp;·&nbsp; '+(r.type||'')+'</div>'
       +'<div class="tags"><span class="tag">'+r.prov+'</span><span class="tag">Recommend: '+(r.rec||'—')+'</span>'+(r.hear?'<span class="tag">Via: '+r.hear+'</span>':'')+(r.first?'<span class="tag">'+r.first+'</span>':'')+'</div>'
-      +(r.good?'<div class="rev-quote">"'+r.good+'"</div>':'')
-      +(r.improve?'<div class="rev-improve"><i class="ti ti-message" style="font-size:12px"></i> Improve: "'+r.improve+'"</div>':'')
+      +(r.good?'<div class="rev-quote">“'+r.good+'”</div>':'')
+      +translatedGood
+      +(r.improve?'<div class="rev-improve"><i class="ti ti-message" style="font-size:12px"></i> Improve: “'+r.improve+'”</div>':'')
+      +translatedImprove
       +'<div class="sub-grid">'+sub+'</div>'
       +'<div class="act-row">'+acts+'</div>'
       +'</div>';
   }).join('');
 }
 
-function setStatus(id,st){var r=reviews.find(function(x){return x.id===id});if(r)r.status=st;renderList()}
-function deleteReview(id){reviews=reviews.filter(function(x){return x.id!==id});renderList()}
-function postTo(id,dest){
-  var r=reviews.find(function(x){return x.id===id});if(!r)return;
-  var txt=r.good||'Great experience at The Women\'s Center.';
-  alert((dest==='google'?'Copy to Google Business Profile:\n\n':'Copy to website testimonials:\n\n')+'"'+txt+'"');
-  r.status='posted';renderList();
+function setStatus(id, st) { var r=reviews.find(function(x){return x.id===id;}); if(r)r.status=st; renderList(); }
+function deleteReview(id) { reviews=reviews.filter(function(x){return x.id!==id;}); renderList(); }
+function postTo(id, dest) {
+  var r = reviews.find(function(x){return x.id===id;}); if(!r) return;
+  var txt = r.good || 'Great experience at The Women\'s Center.';
+  alert((dest==='google'?'Copy to Google Business Profile:\n\n':'Copy to website testimonials:\n\n')+'“'+txt+'”');
+  r.status = 'posted'; renderList();
 }
 
 buildStars();
+applyLang();
 </script>
 </body>
 </html>
