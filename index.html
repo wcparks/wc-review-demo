@@ -861,7 +861,7 @@ function restart() {
 
 function tryLogin() {
   var u = document.getElementById('lu').value.trim(), p = document.getElementById('lp').value.trim();
-  if (u === 'director' && p === 'admin123') {
+  if (u.toLowerCase() === 'director' && p === 'admin123') {
     document.getElementById('lerr').style.display = 'none';
     tabFilter = 'all';
     renderAdmin();
