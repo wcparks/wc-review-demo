@@ -62,9 +62,10 @@ html,body{background:#1E1410;font-family:Georgia,serif;color:#3A2818;height:100%
 .card{background:var(--white);border:1px solid var(--border);border-radius:18px;padding:22px 24px;margin:16px 20px;box-shadow:0 4px 28px rgba(110,72,56,.08)}
 
 /* Fields */
-.field{margin-bottom:14px}
+.field{margin-bottom:18px}
 .field label{display:block;font-family:Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
-.field select,.field input,.field textarea{width:100%;font-family:Arial,sans-serif;font-size:14px;padding:11px 16px;border-radius:12px;border:1.5px solid var(--border);background:var(--white);color:var(--text);outline:none;transition:all .2s}
+.field select,.field input,.field textarea{width:100%;font-family:Arial,sans-serif;font-size:16px;padding:14px 14px;border-radius:10px;border:1.5px solid var(--border);background:var(--white);color:var(--text);outline:none;transition:all .2s;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.field select,.field input{min-height:52px}
 .field select:focus,.field input:focus,.field textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(206,170,152,.22)}
 .field textarea{resize:vertical;min-height:80px;line-height:1.5}
 .req{color:#B84040}
@@ -464,7 +465,7 @@ html,body{background:#1E1410;font-family:Georgia,serif;color:#3A2818;height:100%
     <div class="hero-title" style="font-size:24px" data-key="success-title">Your review has been submitted</div>
     <div class="hero-sub" data-key="success-sub">Our medical director will review your feedback before publishing. Your experience helps us improve care for every patient at all 9 of our locations.</div>
   </div>
-  <div class="qr-card">
+  <div class="qr-card" id="google-review-card" style="display:none">
     <div class="qr-icon"><i class="ti ti-brand-google"></i></div>
     <div class="qr-text">
       <strong data-key="google-prompt">We're so glad you had a great experience. Would you mind sharing your feedback on Google?</strong>
@@ -840,6 +841,7 @@ function submitReview() {
   r.status = 'pending';
   r.date = new Date().toLocaleDateString('en-US', {month:'long',day:'numeric',year:'numeric'});
   reviews.unshift(r);
+  document.getElementById('google-review-card').style.display = (state.ratings.overall === 5) ? 'flex' : 'none';
   showView('v-success');
 }
 function restart() {
