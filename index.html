@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{background:#1E1410;font-family:Georgia,serif;color:#3A2818;height:100%;overflow:hidden}
+html,body{background:#1E1410;font-family:Georgia,serif;color:#3A2818;min-height:100vh;overflow:hidden}
 :root{
   --brown:#6E4838;
   --brown-mid:#A06878;
@@ -22,7 +22,7 @@ html,body{background:#1E1410;font-family:Georgia,serif;color:#3A2818;height:100%
   --border:#EDD0D8;
   --rose:#FDF0F3;
 }
-.app{width:100%;max-width:390px;height:100vh;height:100dvh;margin:0 auto;background:var(--cream);overflow-y:auto;overflow-x:hidden;position:relative}
+.app{width:100%;max-width:390px;min-height:100vh;min-height:100dvh;margin:0 auto;background:var(--cream);overflow-y:auto;overflow-x:hidden;position:relative}
 .view{display:none}.view.active{display:block}
 
 /* Header */
@@ -37,8 +37,7 @@ html,body{background:#1E1410;font-family:Georgia,serif;color:#3A2818;height:100%
 .lang-sep{color:rgba(255,255,255,.3);font-size:10px;padding:0 1px}
 
 /* Hero */
-.wc-hero{background:linear-gradient(160deg,#3C2418 0%,#6E4838 50%,#5A3828 100%);padding:44px 28px 40px;text-align:center}
-#v-welcome{background:linear-gradient(135deg,#3C2418 0%,#6E4838 100%)}
+.wc-hero{background:linear-gradient(160deg,#3C2418 0%,#6E4838 50%,#5A3828 100%);padding:44px 28px 52px;text-align:center}
 .eyebrow{font-family:Arial,sans-serif;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;opacity:.9}
 .hero-title{font-family:'Cormorant Garamond',Georgia,serif;font-size:34px;font-weight:600;color:#fff;line-height:1.25;margin-bottom:12px;font-style:italic}
 .hero-sub{font-family:Arial,sans-serif;font-size:13px;color:var(--gold-light);line-height:1.8;max-width:400px;margin:0 auto 28px;opacity:.88}
@@ -195,11 +194,6 @@ html,body{background:#1E1410;font-family:Georgia,serif;color:#3A2818;height:100%
     <div class="hero-title" data-key="hero-title">How was your visit today?</div>
     <div class="hero-sub" data-key="hero-sub">Your feedback helps us continue delivering exceptional women's health care across Central Florida. Takes about 2 minutes and is completely anonymous.</div>
     <button class="btn-gold" onclick="gotoStep(1)" data-key="btn-start">Share my experience</button>
-  </div>
-  <div style="margin-top:-2px;line-height:0;background:#F5EDE3">
-    <svg viewBox="0 0 375 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="display:block;width:100%;height:40px">
-      <path d="M0,0 C60,40 120,40 187,20 C254,0 314,0 375,30 L375,0 Z" fill="#4A2C0A"/>
-    </svg>
   </div>
   <div class="notice-bar"><i class="ti ti-shield-check"></i><span data-key="notice-welcome">This form collects experience feedback only. No medical, clinical, or protected health information is requested or stored. Your identity is always optional.</span></div>
   <div style="padding:16px 20px 4px;text-align:center">
