@@ -174,6 +174,16 @@ html,body{background:#1E1410;font-family:Georgia,serif;color:#3A2818;height:100%
 .empty{text-align:center;padding:32px;font-family:Arial,sans-serif;font-size:13px;color:var(--muted)}
 .admin-bottom{height:40px}
 
+/* Consent section */
+.consent-divider{display:flex;align-items:center;gap:0;padding:18px 20px 0}
+.consent-divider::before,.consent-divider::after{content:'';flex:1;height:1px;background:var(--border)}
+.consent-heart{font-size:14px;color:var(--gold);padding:0 10px;line-height:1}
+.consent-card{background:var(--white);border:1px solid var(--border);border-radius:18px;padding:18px 20px;margin:14px 20px 0;box-shadow:0 4px 28px rgba(110,72,56,.08);display:flex;gap:16px;align-items:flex-start}
+.consent-icon{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#C07888,#A06070);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.consent-icon svg{width:22px;height:22px;stroke:#fff;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.consent-text{font-family:Arial,sans-serif;font-size:14px;color:var(--text);line-height:1.55}
+.consent-text strong{color:var(--brown)}
+
 /* Footer */
 .wc-footer{background:linear-gradient(135deg,#3C2418 0%,#6E4838 100%);padding:18px 20px;text-align:center;font-family:Arial,sans-serif;font-size:11px;color:var(--gold);letter-spacing:.08em;text-transform:uppercase;opacity:.95}
 </style>
@@ -197,7 +207,13 @@ html,body{background:#1E1410;font-family:Georgia,serif;color:#3A2818;height:100%
     <div class="hero-sub" data-key="hero-sub">Your feedback helps us continue delivering exceptional women's health care across Central Florida. Takes about 2 minutes and is completely anonymous.</div>
     <button class="btn-gold" onclick="gotoStep(1)" data-key="btn-start">Share my experience</button>
   </div>
-  <div class="notice-bar"><i class="ti ti-shield-check"></i><span data-key="notice-welcome">This form collects experience feedback only. No medical, clinical, or protected health information is requested or stored. Your identity is always optional.</span></div>
+  <div class="consent-divider"><span class="consent-heart">♡</span></div>
+  <div class="consent-card">
+    <div class="consent-icon">
+      <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    </div>
+    <p class="consent-text" data-key="notice-welcome">By submitting, you agree your review <strong>may be displayed publicly if approved</strong>. Please do not include medical or personal health information.</p>
+  </div>
   <div style="padding:16px 20px 4px;text-align:center">
     <span class="skip-link" style="padding:0" onclick="showLogin()" data-key="login-link">Staff / medical director login →</span>
   </div>
@@ -547,7 +563,7 @@ var STRINGS = {
     'hero-title': 'How was your visit today?',
     'hero-sub': "Your feedback helps us continue delivering exceptional women's health care across Central Florida. Takes about 2 minutes and is completely anonymous.",
     'btn-start': 'Share my experience',
-    'notice-welcome': 'This form collects experience feedback only. No medical, clinical, or protected health information is requested or stored. Your identity is always optional.',
+    'notice-welcome': 'By submitting, you agree your review may be displayed publicly if approved. Please do not include medical or personal health information.',
     'login-link': 'Staff / medical director login →',
     'login-link-success': 'Medical director login →',
     'step1-eye': 'Step 1 of 4',
@@ -637,7 +653,7 @@ var STRINGS = {
     'hero-title': '¿Cómo fue su visita hoy?',
     'hero-sub': 'Sus comentarios nos ayudan a continuar brindando una atención médica excepcional en toda la Florida Central. Toma aproximadamente 2 minutos y es completamente anónimo.',
     'btn-start': 'Compartir mi experiencia',
-    'notice-welcome': 'Este formulario recopila solo comentarios sobre la experiencia. No se solicita ni almacena información médica, clínica o de salud protegida. Su identidad siempre es opcional.',
+    'notice-welcome': 'Al enviar, acepta que su reseña puede mostrarse públicamente si es aprobada. Por favor no incluya información médica ni de salud personal.',
     'login-link': 'Inicio de sesión del personal →',
     'login-link-success': 'Inicio de sesión del director médico →',
     'step1-eye': 'Paso 1 de 4',
